@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Walk Thru Plans | Storygrain Delivery</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#2D3A33">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--forest:#2D3A33;--sage:#A9B59B;--cream:#F1EDE6;--card:#F8F5EF;--ink:#1C1F1D;--muted:#5B625C;--line:#D9D3C7;--err:#9B3B2E}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+h1,h2,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:6px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.lockup{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sg{display:flex;align-items:center;gap:10px;color:var(--cream);text-decoration:none}
+.sg .m{width:15px;height:35px;color:var(--sage)} .sg .w{width:150px;height:16px}
+.x{color:var(--sage);font-size:1.3rem;line-height:1}
+.clogo{width:56px;height:56px;border-radius:8px;display:block}
+.vf{position:absolute;width:26px;height:26px;border:0 solid rgba(169,181,155,.6)}
+.vf.tl{top:18px;left:18px;border-top-width:2px;border-left-width:2px}.vf.tr{top:18px;right:18px;border-top-width:2px;border-right-width:2px}
+.vf.bl{bottom:18px;left:18px;border-bottom-width:2px;border-left-width:2px}.vf.br{bottom:18px;right:18px;border-bottom-width:2px;border-right-width:2px}
+
+/* gate */
+.gate{min-height:100vh;min-height:100dvh;background:var(--forest);color:var(--cream);display:grid;place-items:center;padding:40px 20px;position:relative}
+.gbox{width:100%;max-width:400px;text-align:center}
+.gbox .lockup{justify-content:center}
+.gbox h1{margin-top:36px;font-size:clamp(1.8rem,6vw,2.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.gbox p.sub{margin-top:10px;color:rgba(241,237,230,.75)}
+.gform{margin-top:28px;display:grid;gap:12px}
+.gform input{width:100%;min-height:52px;padding:0 18px;border-radius:999px;border:1px solid rgba(241,237,230,.25);background:rgba(241,237,230,.08);color:var(--cream);font:inherit;font-size:16px;text-align:center;letter-spacing:.08em}
+.gform input::placeholder{color:rgba(241,237,230,.5);letter-spacing:0}
+.gform button{min-height:52px;border:0;border-radius:999px;background:var(--sage);color:var(--ink);font:inherit;font-weight:600;font-size:1rem;cursor:pointer}
+.gerr{min-height:1.4em;color:#E8A598;font-size:.9rem}
+.gate .mono.rec{position:absolute;top:26px;left:56px;color:var(--sage)}
+.gate .mono.rec i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#E2483A;margin-right:8px;animation:blink 1.2s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* page */
+#page{display:none}
+#page.on{display:block}
+header{background:var(--forest);color:var(--cream);position:relative}
+header .wrap{padding-block:32px 48px}
+header .mono.tag{color:var(--sage);margin-top:40px}
+header h1{margin-top:10px;font-size:clamp(2rem,6.5vw,3.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.04}
+header p{margin-top:14px;color:rgba(241,237,230,.82);max-width:54ch}
+main .wrap{padding-block:28px 72px}
+.block{margin-bottom:32px}
+.label{color:var(--muted);margin-bottom:12px}
+.vid{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--ink);box-shadow:0 12px 40px rgba(28,31,29,.18)}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid.poster{display:block;background:var(--forest)}
+.vid.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .2s,transform .4s}
+.vid.poster:hover img{opacity:1;transform:scale(1.02)}
+.vid .play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--cream);color:var(--forest);display:grid;place-items:center;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.vid .play svg{width:30px;height:30px;margin-left:4px}
+.vid .cap2{position:absolute;left:16px;bottom:14px;color:var(--cream);background:rgba(28,31,29,.7);padding:6px 10px;border-radius:6px}
+.vid.empty{display:grid;place-items:center;text-align:center;color:var(--cream);padding:24px}
+.vid.empty .mono{color:var(--sage)} .vid.empty p{margin-top:8px;color:rgba(241,237,230,.75)}
+.dls{display:grid;gap:10px}
+.dl{display:flex;align-items:center;gap:14px;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s}
+.dl:hover{border-color:var(--forest);transform:translateY(-1px)}
+.dl .ic{flex:none;width:40px;height:40px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center}
+.dl .ic svg{width:20px;height:20px}
+.dl .tx{flex:1;display:grid;min-width:0}
+.dl .tx b{font-weight:600} .dl .tx small{color:var(--muted);font-size:.85rem}
+.dl .go{color:var(--forest)}
+@media(max-width:480px){.dl .go{display:none}}
+.note{margin-top:12px;color:var(--muted);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 20px}
+@media(min-width:600px){.card{padding:30px 32px}}
+.steps{margin:0;padding-left:1.2em;display:grid;gap:8px}
+.steps b{font-weight:600}
+.cap{margin-top:20px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.caphead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.caphead .mono{color:var(--muted)}
+.copy{border:1px solid var(--forest);background:none;color:var(--forest);font:inherit;font-weight:600;font-size:.85rem;border-radius:999px;padding:6px 16px;min-height:36px;cursor:pointer}
+#cap{white-space:pre-line}
+label.f{display:grid;gap:6px;font-weight:600;font-size:.92rem;margin-top:16px}
+input[type=text],textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:16px;color:var(--ink)}
+textarea{min-height:110px;resize:vertical}
+.check{display:flex;gap:12px;align-items:flex-start;margin-top:16px;font-size:.95rem;cursor:pointer}
+.check input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--forest)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:999px;border:0;background:var(--forest);color:var(--cream);font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.tform .btn{margin-top:18px;width:100%}
+.sent{display:none;margin-top:14px;font-weight:600;color:var(--forest)}
+.next{background:var(--forest);color:var(--cream);border-radius:14px;padding:30px 24px;position:relative;overflow:hidden}
+.next h2{font-size:clamp(1.5rem,5vw,2rem);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.next p{margin-top:10px;color:rgba(241,237,230,.8);max-width:46ch}
+.next .btn{margin-top:20px;background:var(--sage);color:var(--ink);width:100%;text-align:center;padding:12px 20px}
+.hide{position:absolute;left:-9999px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 20px 40px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sg-mark" viewBox="30 30 172.4 400"><path fill="currentColor" fill-rule="nonzero" transform="translate(-33.21,-14.81) scale(0.96216)" d="M68.576,261.172C61.111,268.260 65.241,339.837 116.769,374.726C162.169,405.465 186.120,404.395 229.743,462.306C256.833,407.864 221.798,348.760 164.206,317.936C137.459,303.622 113.824,290.711 68.576,261.172ZM80.337,149.884C63.739,236.819 144.836,274.809 159.068,283.302C195.333,304.945 203.330,307.549 237.235,349.430C257.868,304.022 236.383,242.703 178.347,208.503C151.943,192.944 132.535,183.903 80.337,149.884ZM146.998,46.574C127.227,69.474 131.690,119.294 143.882,139.612C167.914,179.664 190.372,173.255 236.967,231.032C248.031,217.300 245.006,178.319 233.134,153.162C212.217,108.838 172.708,106.866 146.998,46.574Z"/></symbol><symbol id="sg-word" viewBox="28 28 686 74"><path fill="currentColor" fill-rule="nonzero" transform="translate(30.00,100.00) scale(1.00000)" d="M31.6 1.4000000000000001Q23.0 1.4000000000000001 15.05 -0.7500000000000001Q7.1000000000000005 -2.9000000000000004 2.1 -6.300000000000001L8.6 -20.900000000000002Q13.3 -17.900000000000002 19.450000000000003 -15.950000000000001Q25.6 -14.0 31.700000000000003 -14.0Q35.800000000000004 -14.0 38.300000000000004 -14.75Q40.800000000000004 -15.5 41.95 -16.75Q43.1 -18.0 43.1 -19.700000000000003Q43.1 -22.1 40.900000000000006 -23.5Q38.7 -24.900000000000002 35.2 -25.800000000000004Q31.700000000000003 -26.700000000000003 27.450000000000003 -27.6Q23.200000000000003 -28.5 18.950000000000003 -29.9Q14.700000000000001 -31.3 11.200000000000001 -33.550000000000004Q7.7 -35.800000000000004 5.5 -39.45Q3.3000000000000003 -43.1 3.3000000000000003 -48.7Q3.3000000000000003 -55.0 6.750000000000001 -60.1Q10.200000000000001 -65.2 17.1 -68.30000000000001Q24.0 -71.4 34.300000000000004 -71.4Q41.2 -71.4 47.85 -69.85Q54.5 -68.3 59.7 -65.3L53.6 -50.6Q48.6 -53.300000000000004 43.7 -54.650000000000006Q38.800000000000004 -56.0 34.2 -56.0Q30.1 -56.0 27.6 -55.150000000000006Q25.1 -54.300000000000004 24.0 -52.900000000000006Q22.900000000000002 -51.5 22.900000000000002 -49.7Q22.900000000000002 -47.400000000000006 25.050000000000004 -46.050000000000004Q27.200000000000003 -44.7 30.750000000000004 -43.85Q34.300000000000004 -43.0 38.550000000000004 -42.1Q42.800000000000004 -41.2 47.050000000000004 -39.85Q51.300000000000004 -38.5 54.800000000000004 -36.25Q58.300000000000004 -34.0 60.45 -30.35Q62.6 -26.700000000000003 62.6 -21.200000000000003Q62.6 -15.100000000000001 59.150000000000006 -9.950000000000001Q55.7 -4.800000000000001 48.85 -1.7000000000000002Q42.0 1.4000000000000001 31.6 1.4000000000000001ZM85.60000000000001 0.0V-54.300000000000004H64.10000000000001V-70.0H126.80000000000001V-54.300000000000004H105.4V0.0ZM168.5 1.4000000000000001Q160.1 1.4000000000000001 153.0 -1.2999999999999998Q145.9 -4.0 140.65 -8.95Q135.4 -13.9 132.5 -20.5Q129.6 -27.1 129.6 -35.0Q129.6 -42.900000000000006 132.5 -49.5Q135.4 -56.1 140.65 -61.05Q145.9 -66.0 153.0 -68.7Q160.1 -71.4 168.5 -71.4Q177.0 -71.4 184.05 -68.7Q191.10000000000002 -66.0 196.3 -61.05Q201.5 -56.1 204.45 -49.5Q207.4 -42.900000000000006 207.4 -35.0Q207.4 -27.1 204.45 -20.450000000000003Q201.5 -13.8 196.3 -8.9Q191.10000000000002 -4.0 184.05 -1.2999999999999998Q177.0 1.4000000000000001 168.5 1.4000000000000001ZM168.5 -15.0Q172.5 -15.0 175.95 -16.4Q179.4 -17.8 181.95 -20.450000000000003Q184.5 -23.1 185.95 -26.8Q187.4 -30.5 187.4 -35.0Q187.4 -39.6 185.95 -43.25Q184.5 -46.900000000000006 181.95 -49.550000000000004Q179.4 -52.2 175.95 -53.6Q172.5 -55.0 168.5 -55.0Q164.5 -55.0 161.05 -53.6Q157.6 -52.2 155.05 -49.550000000000004Q152.5 -46.900000000000006 151.05 -43.25Q149.6 -39.6 149.6 -35.0Q149.6 -30.5 151.05 -26.8Q152.5 -23.1 155.05 -20.450000000000003Q157.6 -17.8 161.05 -16.4Q164.5 -15.0 168.5 -15.0ZM216.8 0.0V-70.0H248.10000000000002Q263.40000000000003 -70.0 271.65000000000003 -63.05Q279.90000000000003 -56.1 279.90000000000003 -44.1Q279.90000000000003 -36.2 276.1 -30.450000000000003Q272.3 -24.700000000000003 265.35 -21.650000000000002Q258.40000000000003 -18.6 248.8 -18.6H227.8L236.60000000000002 -26.900000000000002V0.0ZM260.1 0.0 242.70000000000002 -25.5H263.8L281.3 0.0ZM236.60000000000002 -24.8 227.8 -33.9H247.60000000000002Q253.8 -33.9 256.85 -36.6Q259.90000000000003 -39.300000000000004 259.90000000000003 -44.1Q259.90000000000003 -49.0 256.85 -51.7Q253.8 -54.400000000000006 247.60000000000002 -54.400000000000006H227.8L236.60000000000002 -63.5ZM307.5 0.0V-29.6L312.1 -17.7L280.8 -70.0H301.7L324.3 -32.1H312.2L334.90000000000003 -70.0H354.1L322.90000000000003 -17.7L327.3 -29.6V0.0ZM395.20000000000005 0.6000000000000001Q387.20000000000005 0.6000000000000001 380.45000000000005 -2.05Q373.70000000000005 -4.7 368.75 -9.5Q363.8 -14.3 361.05 -20.8Q358.3 -27.3 358.3 -35.0Q358.3 -42.7 361.05 -49.2Q363.8 -55.7 368.8 -60.5Q373.8 -65.3 380.55 -67.95Q387.3 -70.60000000000001 395.3 -70.60000000000001Q403.3 -70.60000000000001 409.95000000000005 -68.10000000000001Q416.6 -65.60000000000001 421.3 -60.5L416.70000000000005 -55.800000000000004Q412.3 -60.2 407.0 -62.1Q401.70000000000005 -64.0 395.6 -64.0Q389.1 -64.0 383.65000000000003 -61.85Q378.20000000000005 -59.7 374.15000000000003 -55.75Q370.1 -51.800000000000004 367.85 -46.550000000000004Q365.6 -41.300000000000004 365.6 -35.0Q365.6 -28.8 367.85 -23.5Q370.1 -18.2 374.15000000000003 -14.25Q378.20000000000005 -10.3 383.65000000000003 -8.15Q389.1 -6.0 395.5 -6.0Q401.5 -6.0 406.85 -7.800000000000001Q412.20000000000005 -9.600000000000001 416.70000000000005 -13.9L420.90000000000003 -8.3Q415.90000000000003 -3.9000000000000004 409.20000000000005 -1.6500000000000001Q402.5 0.6000000000000001 395.20000000000005 0.6000000000000001ZM420.90000000000003 -8.3 413.8 -9.200000000000001V-35.0H420.90000000000003ZM440.8 0.0V-70.0H467.00000000000006Q480.30000000000007 -70.0 487.95000000000005 -63.650000000000006Q495.6 -57.300000000000004 495.6 -46.0Q495.6 -38.6 492.15000000000003 -33.25Q488.70000000000005 -27.900000000000002 482.30000000000007 -25.050000000000004Q475.90000000000003 -22.200000000000003 467.00000000000006 -22.200000000000003H444.90000000000003L448.20000000000005 -25.6V0.0ZM488.6 0.0 470.6 -25.400000000000002H478.6L496.70000000000005 0.0ZM448.20000000000005 -25.0 444.90000000000003 -28.5H466.8Q477.30000000000007 -28.5 482.75000000000006 -33.1Q488.20000000000005 -37.7 488.20000000000005 -46.0Q488.20000000000005 -54.400000000000006 482.75000000000006 -59.0Q477.30000000000007 -63.6 466.8 -63.6H444.90000000000003L448.20000000000005 -67.10000000000001ZM500.90000000000003 0.0 532.9000000000001 -70.0H540.2L572.2 0.0H564.4000000000001L535.0 -65.7H538.0L508.6 0.0ZM513.5 -18.7 515.7 -24.700000000000003H556.4000000000001L558.6 -18.7ZM582.8000000000001 0.0V-70.0H590.2V0.0ZM612.0000000000001 0.0V-70.0H618.1000000000001L666.4000000000001 -9.200000000000001H663.2000000000002V-70.0H670.5000000000001V0.0H664.4000000000001L616.2000000000002 -60.800000000000004H619.4000000000001V0.0Z"/></symbol></svg>
+
+<!-- Netlify form detection (the visible form is below) -->
+<form hidden method='post' name='testimonial' data-netlify='true' netlify-honeypot='bot-field'><input type='hidden' name='form-name' value='testimonial' />
+  <input name="client"><input name="name"><textarea name="testimonial"></textarea><input name="ok_to_share"><input name="bot-field">
+</form>
+
+<section class="gate" id="gate">
+  <span class="vf tl"></span><span class="vf tr"></span><span class="vf bl"></span><span class="vf br"></span>
+  <span class="mono rec"><i></i>Delivery</span>
+  <div class="gbox">
+    <div class="lockup">
+      <span class="sg"><svg class="m" aria-hidden="true"><use href="#sg-mark"></use></svg><svg class="w" aria-hidden="true"><use href="#sg-word"></use></svg></span>
+      <span class="x" aria-hidden="true">&times;</span>
+      <img class="clogo" src="wtp-logo.png" alt="Walk Thru Plans">
+    </div>
+    <h1>Your video is ready.</h1>
+    <p class="sub">Enter your password to view and download.</p>
+    <form class="gform" id="gform">
+      <label class="hide" for="pw">Password</label>
+      <input id="pw" type="password" placeholder="Password" autocomplete="current-password" autocapitalize="off" spellcheck="false" required>
+      <button type="submit" id="gbtn">View delivery</button>
+      <div class="gerr" id="gerr" role="alert"></div>
+    </form>
+  </div>
+</section>
+
+<div id="page">
+  <header>
+    <span class="vf tl"></span><span class="vf tr"></span><span class="vf bl"></span><span class="vf br"></span>
+    <div class="wrap">
+      <div class="lockup">
+        <a class="sg" href="/" aria-label="Storygrain Creative"><svg class="m" aria-hidden="true"><use href="#sg-mark"></use></svg><svg class="w" aria-hidden="true"><use href="#sg-word"></use></svg></a>
+        <span class="x" aria-hidden="true">&times;</span>
+        <img class="clogo" src="wtp-logo.png" alt="Walk Thru Plans">
+      </div>
+      <div class="mono tag">Delivered November 2026</div>
+      <h1>Walk Thru Plans Brand Video</h1>
+      <p>Thanks for trusting us with this. Everything you need is below.</p>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div id="private"></div>
+
+      <section class="block card">
+        <div class="mono label">One favor</div>
+        <p>A few sentences about working with us would mean a lot. It takes a minute.</p>
+        <form class="tform" id="tform" name="testimonial">
+          <input type="hidden" name="form-name" value="testimonial">
+          <input type="hidden" name="client" value="Walk Thru Plans">
+          <p class="hide"><label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <label class="f">Your name<input type="text" name="name" autocomplete="name" required></label>
+          <label class="f">What was it like working with Storygrain?<textarea name="testimonial" required></textarea></label>
+          <label class="check"><input type="checkbox" name="ok_to_share" value="yes" checked> OK to share this with your name on our website and social</label>
+          <button class="btn" type="submit">Send</button>
+          <div class="sent" id="sent" aria-live="polite">Thank you. We really appreciate it.</div>
+        </form>
+      </section>
+
+      <section class="block next">
+        <h2>Want this every month?</h2>
+        <p>We plan, shoot and deliver ready-to-post content on a schedule, so you're never starting from scratch.</p>
+        <a class="btn" href="/check/?utm_source=delivery&amp;utm_campaign=walk-thru-plans">Take the 3-minute Content Check</a>
+      </section>
+    </div>
+  </main>
+  <footer>Storygrain Creative &middot; Omaha, NE &middot; <a href="mailto:hello@storygrain.co">hello@storygrain.co</a></footer>
+</div>
+
+<script>
+(function(){
+  var BLOB={"s": "hHge15DSaqsRkAUKWdiyog==", "i": "RvwZsxqk/AQCrPh4", "n": 250000, "c": "YQ7ew2ey61T91hCIgjcp8Y/yQQRcsYXD4pAD/1E1NEJp8ROvGligRysQX24Qgnd5+Jbe3BSIlNrGaAU53EMpZXrmHasvs3o686oi2DIxbmzzyb16d4YY/AKzKZ6ClXfrKJSupc912lUc/tCLNswOGoOZ6le73H98Pa3+Eme0P6ReeQMiUlo0tArMy1dJor1mN13mTeOhTHot5EFGHsk/15K2WUmkqGgLV5MOnvl5lYOvFEpCtJMhqm73knN9G74qs+P6Dn67eCIQ8cHen7Ou5w5+s631W8hA0HYtdxeAsOby7qy5sxsxlZXq8Ctt5m2JzBce7NQwd7a0H7lRkyrabB4Kx0Gu+rEs4PLBChMDcNvR9htfIuhlI/4Ut0cOSoQg5uYRGQa3c4tveT9pXyxie9dARghXtc24+VYrBt3vh16c44PkUebU9cBHdd5KjYm85AW7XqDJ+5x2V2ZAUXfKtQRFQqPN7m7wj02pu3RIFGGmvtqeb8v/CA+ZXUh7KkQLnBurgeM/nhzCFaOjt2Qn/JuoXrBA+Q+oTmhPQv5VGuIpVfEF9fjP50ypFeKlay7P+HdTl/YoE4g6lZj4NJdEKHcTMRikgaF9J8Zsf/3jMYSufB7ePAQ4yA8bRfTkjeWpvDa9hDQCb7IXXsGW59DXEOfeEQHBIO9ddGMDSQ9FN7P/QzOWTIQIzB5rz0XVSGs0ju5QVpQyAFnKhYC50fq8jxeqB9chhX0V9qQ69Raj9D8JOoSrk51WQxajbsJ+IPPqv2guTJkL5Mf2mrj5GZya61hXQ9yxWudrEHPc5ix+vbp94u2R0H9G46kB0P3BitlqWQPAbOHriHawnQjpvoBW5YaWTeWuKo1G2UAXUkr+60uRcF/n03+5p+O+pOVj+25yhTS7p3BYxHr/GZ++67ZC9sNNk/PgPvUaeLzFri9ybz9wIyPTfGKZzy/PvX1r++TVRiQu6EKcUqInayFrgt9tcfECEI4ueGbP/cCucuQLKX9kmcm3futhXQeUHYdU3LAtd6s28MQ2Q1NJXpMzqVxzYyaZ8QkiWscLVPBO9/coiWFpTKpCTCS8k7ScYRFw16asZTQQXSLUKDwkIoZVX0uNeO5mW5OC0vNNzNyffX7Leswg6Zwt97s2JRO2z5IZkiXIiIWkZyuhV1YjNiZ2Hasfluxvji2MxWaRq6s/o3gGpV/+Gri2O6xl8c86iggAEyFVXcpKT5/goJw69HBw7sdex63j2/ffmcUyOUezptFsqkyYwmkcaZ2PdZ6yoOzP3thMsIrJafamY3UHWZ6uuDfSkJxSkkt4HYWJTOpwoscDOg8mA+XCQXa/Wuno0+M/xjeqdDOERQzc/6WCosGhAKDsOLl2JQdv2Bhf46pJK/GBavJGkMs3M2GB6rvRvczI83dUHDo1id4JcDTLZlT1qbw7uqlGWaZ9Ncuy4c6zck/loKTezYG/IeQ2zN3Gb847158hlwDKyy670rNmha9xzyaQ+kqJ40XzDrJzvCDeiFs3koaamPBE/TJXQmX/m8XUulBv5PmmspL6YavU4Ql8VsHpsUxzXQkxV/ZNCtmIeo+OeUBsMmkfkD+yziWHbKN6Vk3Rd8BBy0xCY1uE5SJNqT99sBDy5bzj9Hjl8jw8XkF0H+577GiAcLRqI82j/hTaOX5T3r4y2d+R0uYr7W99oz+Ald8Q8FZ5+ivgZWsIBdnIJ+z4A0Bho87dEwpcwqUv45vue0VsC3BstHd7K6dfdMICCrA2ylfIiukwpUhDj2oK5sD+8lvPFygwDFxmXDhqDTLnjQdTAVFyPoefTd8YJbgg/ydyNmoWLIMc7HEDWyYkV+VXsU2ng6gohiqbOuvn30a613COGHe//Yx0Lu1/5x72TtGpfZ92KNY72cZ2R9SQxhpMSK3AdWI31CT067YaPvzT6WRbqJr9P1M19Xh7Z6+O1smHgFEtyJsOcVxxMysmvfxvBvnmLVZhpeUyLi6LkKnPPIFWvJMQuWs5vaxwbCLSgd7Qn7rgTLoYzOK/HSYWt7nsj6kXugP8RpKoG28mqqtFeKpZ3bVhlmGaoiKMlI8TsNwp/VaVTiUUGXr9J6PQUfOCHVKF7nciT1W4Jl470CCo+mRy1Bxj+TkMs3b7sgjFSUyZO86FutPBcrd+Ijy5Z038EqBIrzmB2/KTC1Z/hfVmV+thJIN2eYd7Em6rfJvr2MobI3CoqS2HfVoTZMdRnTeXrQdBLoFxzQpYh+vvEL4vBbygIqCvcKNVEw5MaI5TY7sroBwVPtAN4FdnnExM9IVvOX9weecuy1Wsdq1zYU4voFEjLVRhM1+SX9SzcbMqVcVIT2/zhE2rYbGKyg+o6Ks4BiwwVKWkoeI9AV4aoRY+yHiNaTRJgYHhmVf5HQa0jdbi6CytvYY0a+nMkpihaTGD8So8t2jIyIdrtDy0sIEjWaTA5txmO486YnT/NPIObKqfJ87XQyWoMjR0gnkz4gHkyoTC3O3XJ6HYgG1u1X5f4yJWBKD9a9UTDpD4HsQG1C6/uJe7mkjgG989VdHxT8hfWLwvsbFX070JMO9X3Vwxj1sksYCTark2/+F8G3hWI+VTqi66XDZeHL+zCYTTfYCOGYMqs7T5KBfkZU00+h7AZYcn9tLFkJjGfGiXx3g2yMjDZhe4PyNxIRJ17a/m2ZYXPfzzZtRd9LKfhNKk+nHfoXO/82AEK5PiPqcvr9LIM372D6Y9yKdj+qgy8kRv8ZVMlzJ9tsWZnOtwfAAuwPxSr8ZvmBbDZnpR2MxWao7ht2ohzI1u3RWsNkkHNTtMWDWhqtoTOBXgqrT4VtPTx23I4s2aPPZMILSk3YXtxXMBnGoxXtM161vksKjYXGCRKLyQCDwOncD2jSDagQ9AgqarPdC4Dl7ABn8bgaUKmV8HqKoTmDnzxUB8Tw1jI2cb21mQW4FtvqBZ2FSft/Ap/4S5mfCJmK8udQSZS/IT+/M07uZKnPxBz/L9pxJR++l1WMhT+YFKzp9HQTYyiHeBoDnMLrfB0QKfQzGdlPiN/K5soNGvS3cqGSFKYUz1pHo8BwvV/pdbIesXMJGtZjj6ko62o7+RPYjG74c0SobT7YZpxZJaTZKCXzo+/Y3E0INTrSwB2M5+8SNtEXYZk7L27KIG2qdzXARMbYT2OHKr6jaqwdX+PVlQ9lcK4DQOcGdHxQ+TBDeeZ7gANoOW/jn08o9RjxigIAIA8DeJ2aYS+Wj2FxOSfji40YM5B9YO4eALzJXknK9/3p0vhgbiyudhUJ7EHNnZZJNoYeoIOVg3GdG1ulkd6FyLe8Zvmm8BmsYnkqfSx0CCtSRiKdM6GwkYLEyE6pGv3KF0vOi06pdphD971DjbOLC9np+exgK3dqgnt05Zw3QF/gosjMo2PtrEGj9lK2XqcApumhs+v7HV0ZuRMoQ6L2+4vOl62960bOQfGser4FIn6UbVUnOu8NoEkGMY24hrf5rOERU5BXI0kYGY4q9o0y9Oz/G07MaY5M0ApDT42Izzfl56dJ/Qf3DqsF5MEGHWlmX8h+WqbjURcpAyHLLG0fP534PGExDwuL6KZW7jKPXflorEaJyFTKSHyLpLTjGEtcmN05ILV4954Z4Yvz57VKARiZF0ySL4zy5LvMB/S8H1r2uRM4qKFFCK6a4Cfx1qslsraIm05//+XQaAYf4ybPtQxq5kp+FbijXpCZpODDKI5AD3HWK1nSeLo2Tj8q5ZSiveD94O4M/3f39SjCn6RCbE7vKo5253b3dC02050j2V2S8j/N/Aw2sDfdidMwjHMA/j2MIKd84eeqFc3aO04bNb1iLhQRdmX1T3lgIKst2o4YGkaIOp9MTHBTElqHaOW7Mi17GPW30Bv5wKGPPIjXLMdrrdlXjXPnm1l8pOppN4S8AE5Abr5v1L2o28whfIaThs0/VX0ZhyPEzu3FHhTYGEBegDAa35V+/fc9AjDq2vNzKnS/AdVsZKZ5Qt+efiMZ5EMShptJ23BpZNXZs2YLM2U3PcGuJgBHmXf93ll8uGS4LkuZQvcxE8CI/z8xwxAmnfcHMqjr2OfvOqfj9t4KES7knnRl/LJdBAvbLbJPeOT/g1VZRwWm+Fki/+/0DdUMc7F+xmC5OQawGP9PsSuwdW/vkasU33c8lnGR3Sb8TEJxCJXGaXaNPRjrp+5IK3RIk2tGN1BhQGRvfgb5IuZ+yNk9N3vc3VOCeXLkdA2whj/J8ppvCBLeubqEinetzvdJQpglkdq2/p6bcbER/Fe0tjrwUDxNq6B8WI0Qn0+//QUt6lh5vfQUEmC2iIimcGxPOxRrEip/6xk5s0tmns4cURQw8yS76Y30jPX/b/A+G99l5mufhlm+45G1+hX62yPYaPcKtW+X8Kw3/gpW5vZujzj+7hRgl20fHpEx4AoHOzb4fqh3pVzBUBzFkdDqtmZZOC8vZkp9OmMHcXXk3yYOlb2E+fnyHSFDlm2ydfO694N9J4Ata612160jTiGmN9FTOZyI93TkrSZRnTi/178UxRGjxoOHOOg/7oIkjlqGN3m10l0eViwboBCQcF"}, KEY='sg-walk-thru-plans';
+  function b64(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
+  function unlock(pw){
+    var enc=new TextEncoder();
+    if(!window.crypto||!crypto.subtle)return Promise.reject(new Error('nocrypto'));
+    return crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']).then(function(k){
+      return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(BLOB.s),iterations:BLOB.n,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
+    }).then(function(key){
+      return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(BLOB.i)},key,b64(BLOB.c));
+    }).then(function(buf){
+      document.getElementById('private').innerHTML=new TextDecoder().decode(buf);
+      document.getElementById('gate').style.display='none';
+      document.getElementById('page').classList.add('on');
+      wireCopy();
+      try{localStorage.setItem(KEY,pw);}catch(e){}
+    });
+  }
+  var gform=document.getElementById('gform'),pw=document.getElementById('pw'),gerr=document.getElementById('gerr'),gbtn=document.getElementById('gbtn');
+  gform.addEventListener('submit',function(e){
+    e.preventDefault();gerr.textContent='';gbtn.disabled=true;gbtn.textContent='Opening…';
+    unlock(pw.value.trim()).catch(function(){
+      gerr.textContent="That password didn't work. Try again.";gform.classList.remove('shake');void gform.offsetWidth;gform.classList.add('shake');pw.select();
+    }).finally(function(){gbtn.disabled=false;gbtn.textContent='View delivery';});
+  });
+  try{var saved=localStorage.getItem(KEY);if(saved)unlock(saved).catch(function(){try{localStorage.removeItem(KEY);}catch(e){}});}catch(e){}
+
+  function wireCopy(){
+    document.querySelectorAll('.copy').forEach(function(b){
+      b.addEventListener('click',function(){
+        var t=document.getElementById(b.dataset.copy).innerText;
+        (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1600);}).catch(function(){
+          var r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.copy));var s=getSelection();s.removeAllRanges();s.addRange(r);
+        });
+      });
+    });
+  }
+
+  var tform=document.getElementById('tform');
+  tform.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=tform.querySelector('.btn');btn.disabled=true;
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(tform)).toString()})
+    .then(function(r){if(!r.ok)throw 0;document.getElementById('sent').style.display='block';btn.style.display='none';})
+    .catch(function(){btn.disabled=false;btn.textContent='Try again';});
+  });
+})();
+</script>
+</body>
+</html>

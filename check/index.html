@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Content Check | Storygrain Creative, Omaha NE</title>
+<meta name="description" content="A three-minute quiz from Storygrain Creative in Omaha, NE. Answer 10 questions and see what your business needs to keep content consistent.">
+<link rel="canonical" href="https://storygrain.co/check/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2D3A33">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Storygrain Creative">
+<meta property="og:url" content="https://storygrain.co/check/">
+<meta property="og:title" content="The Content Check: what does your marketing actually need?">
+<meta property="og:description" content="Ten questions, three minutes. See what it takes to keep your business's content consistent. No email required.">
+<meta property="og:image" content="https://storygrain.co/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://storygrain.co/og-image.png">
+<!-- Meta Pixel: paste your pixel snippet here, then uncomment the fbq() calls marked PIXEL in the script below. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one question per screen inside a viewfinder frame; a forest header and a results "shot list" at the end. Single committed brand look. */
+:root{
+  --forest:#2D3A33; --forest-deep:#243029; --sage:#A9B59B; --cream:#F1EDE6; --paper:#E9E4D9;
+  --ink:#1C1F1D; --muted:#5B625C; --line:#D9D3C7; --card:#F8F5EF;
+  --body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--forest)}
+.wrap{max-width:860px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:4px}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* header */
+.top{background:var(--forest);color:var(--cream);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cream);text-decoration:none}
+.brand .m{width:16px;height:38px;color:var(--sage)}
+.brand .w{width:150px;height:16px}
+.top .live{display:flex;align-items:center;gap:8px;color:rgba(241,237,230,.75)}
+.top .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);animation:blink 1.2s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+
+/* intro */
+.intro{background:var(--forest);color:var(--cream);padding-block:56px 64px}
+.intro h1{font-size:clamp(2.2rem,5.4vw,3.6rem);line-height:1.04;font-weight:800;max-width:16ch}
+.intro p{margin-top:18px;max-width:46ch;color:rgba(241,237,230,.82);font-size:1.15rem}
+.intro .meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;color:var(--sage)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;border:0;font:600 1rem/1 var(--body);cursor:pointer;text-decoration:none;transition:transform .2s,background .2s,opacity .2s}
+.btn svg{width:18px;height:18px;transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-sage{background:var(--sage);color:var(--ink)} .btn-sage:hover{background:#B9C4AC}
+.btn-forest{background:var(--forest);color:var(--cream)} .btn-forest:hover{background:var(--forest-deep)}
+.btn-ghost{background:transparent;color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--line)} .btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--forest)}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.intro .btn{margin-top:32px}
+
+/* quiz frame */
+.stage{padding-block:40px 72px}
+.frame{position:relative;padding:40px 36px 44px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.frame>i{position:absolute;width:22px;height:22px;border:0 solid var(--forest);opacity:.55}
+.frame>i:nth-of-type(1){top:10px;left:10px;border-top-width:2px;border-left-width:2px}
+.frame>i:nth-of-type(2){top:10px;right:10px;border-top-width:2px;border-right-width:2px}
+.frame>i:nth-of-type(3){bottom:10px;left:10px;border-bottom-width:2px;border-left-width:2px}
+.frame>i:nth-of-type(4){bottom:10px;right:10px;border-bottom-width:2px;border-right-width:2px}
+.prog{display:flex;align-items:center;gap:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ticks{flex:1;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.ticks span{height:6px;border-radius:2px;background:var(--line);transition:background .3s}
+.ticks span.t-done{background:var(--forest)}
+.ticks span.t-now{background:var(--sage)}
+fieldset{border:0;margin:28px 0 0;padding:0;min-width:0}
+legend{padding:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;line-height:1.15;color:var(--forest);letter-spacing:-.02em}
+.hint{margin-top:8px;color:var(--muted)}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.opts.one-col{grid-template-columns:1fr}
+@media (max-width:620px){.opts{grid-template-columns:1fr}.frame{padding:36px 20px 40px}}
+.opt{position:relative;display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:border-color .2s,background .2s,transform .2s;min-width:0}
+.opt:hover{border-color:var(--sage);transform:translateY(-1px)}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .box{flex:none;width:22px;height:22px;margin-top:1px;border:1.5px solid var(--muted);border-radius:50%;display:grid;place-items:center;transition:all .2s}
+.opt.multi .box{border-radius:6px}
+.opt .box svg{width:14px;height:14px;opacity:0;color:var(--cream);transition:opacity .15s}
+.opt .t{display:grid;gap:2px;min-width:0}
+.opt .t b{font-weight:600;color:var(--ink)}
+.opt .t small{color:var(--muted);font-size:.92rem;line-height:1.4}
+.opt:has(input:checked){border-color:var(--forest);background:#EEF1EA}
+.opt:has(input:checked) .box{background:var(--forest);border-color:var(--forest)}
+.opt:has(input:checked) .box svg{opacity:1}
+.opt:has(input:focus-visible){outline:2px solid var(--forest);outline-offset:2px}
+.opt.locked{opacity:.45;cursor:not-allowed}
+.sub{margin-top:26px}
+.sub h3{font-size:1.05rem;font-weight:600;color:var(--forest)}
+.sub .opts{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:10px}
+@media (max-width:620px){.sub .opts{grid-template-columns:1fr}}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+.step-in{animation:rack .55s cubic-bezier(.3,.6,.2,1) both}
+@keyframes rack{0%{opacity:0;filter:blur(8px);transform:translateY(10px)}60%{opacity:1;filter:blur(1px)}100%{opacity:1;filter:blur(0);transform:none}}
+@media (prefers-reduced-motion: reduce){.step-in{animation:none}.top .live::before{animation:none}.opt,.btn{transition:none}}
+
+/* results */
+.res-head{background:var(--forest);color:var(--cream);border-radius:12px;padding:36px 32px;position:relative;overflow:hidden}
+.res-head .mono{color:var(--sage)}
+.res-head h2{margin-top:10px;font-size:clamp(1.9rem,4.4vw,2.8rem);font-weight:800;line-height:1.05}
+.res-head p{margin-top:12px;max-width:52ch;color:rgba(241,237,230,.84)}
+.fit{display:flex;align-items:center;gap:16px;margin-top:24px;flex-wrap:wrap}
+.meter{display:flex;gap:6px}
+.meter span{width:34px;height:8px;border-radius:2px;background:rgba(241,237,230,.2)}
+.meter span.on{background:var(--sage)}
+.fit b{font-weight:600}
+.snap{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.snap span{padding:7px 12px;border-radius:999px;background:rgba(241,237,230,.1);color:var(--cream);font-size:.9rem}
+.recs{margin-top:28px;display:grid;gap:14px;list-style:none;padding:0}
+.rec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start;padding:22px 24px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.rec .ic{width:48px;height:48px;border-radius:50%;background:#E3E7DD;color:var(--forest);display:grid;place-items:center}
+.rec .ic svg{width:24px;height:24px}
+.rec .tag{color:var(--muted)}
+.rec h3{font-size:1.25rem;font-weight:800;color:var(--forest);margin-top:2px}
+.rec p{margin-top:6px;color:var(--muted)}
+.rec.core{border-color:var(--forest)}
+.rec.core .ic{background:var(--forest);color:var(--cream)}
+.rec.extra .ic{background:transparent;border:1.5px dashed var(--muted)}
+.group-label{margin-top:30px;color:var(--muted)}
+.send{margin-top:32px;padding:30px 28px;background:var(--paper);border-radius:12px}
+.send h3{font-size:1.5rem;font-weight:800;color:var(--forest)}
+.send p{margin-top:6px;color:var(--muted)}
+.send form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+@media (max-width:620px){.send form{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field.full{grid-column:1 / -1}
+.field label{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field input{font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;min-height:48px;box-sizing:border-box;width:100%}
+.field input:focus{outline:none;border-color:var(--forest)}
+.send .row{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.send small{color:var(--muted)}
+.sent-msg{grid-column:1 / -1;padding:14px 16px;border:1px solid var(--forest);border-radius:8px;color:var(--forest);font-family:var(--mono);font-size:.85rem}
+.again{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+footer{background:var(--forest-deep);color:rgba(241,237,230,.7);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-block:22px}
+footer a{color:var(--sage)}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sg-mark" viewBox="30 30 172.4 400"><path fill="currentColor" fill-rule="nonzero" transform="translate(-33.21,-14.81) scale(0.96216)" d="M68.576,261.172C61.111,268.260 65.241,339.837 116.769,374.726C162.169,405.465 186.120,404.395 229.743,462.306C256.833,407.864 221.798,348.760 164.206,317.936C137.459,303.622 113.824,290.711 68.576,261.172ZM80.337,149.884C63.739,236.819 144.836,274.809 159.068,283.302C195.333,304.945 203.330,307.549 237.235,349.430C257.868,304.022 236.383,242.703 178.347,208.503C151.943,192.944 132.535,183.903 80.337,149.884ZM146.998,46.574C127.227,69.474 131.690,119.294 143.882,139.612C167.914,179.664 190.372,173.255 236.967,231.032C248.031,217.300 245.006,178.319 233.134,153.162C212.217,108.838 172.708,106.866 146.998,46.574Z"/></symbol><symbol id="sg-word" viewBox="28 28 686 74"><path fill="currentColor" fill-rule="nonzero" transform="translate(30.00,100.00) scale(1.00000)" d="M31.6 1.4000000000000001Q23.0 1.4000000000000001 15.05 -0.7500000000000001Q7.1000000000000005 -2.9000000000000004 2.1 -6.300000000000001L8.6 -20.900000000000002Q13.3 -17.900000000000002 19.450000000000003 -15.950000000000001Q25.6 -14.0 31.700000000000003 -14.0Q35.800000000000004 -14.0 38.300000000000004 -14.75Q40.800000000000004 -15.5 41.95 -16.75Q43.1 -18.0 43.1 -19.700000000000003Q43.1 -22.1 40.900000000000006 -23.5Q38.7 -24.900000000000002 35.2 -25.800000000000004Q31.700000000000003 -26.700000000000003 27.450000000000003 -27.6Q23.200000000000003 -28.5 18.950000000000003 -29.9Q14.700000000000001 -31.3 11.200000000000001 -33.550000000000004Q7.7 -35.800000000000004 5.5 -39.45Q3.3000000000000003 -43.1 3.3000000000000003 -48.7Q3.3000000000000003 -55.0 6.750000000000001 -60.1Q10.200000000000001 -65.2 17.1 -68.30000000000001Q24.0 -71.4 34.300000000000004 -71.4Q41.2 -71.4 47.85 -69.85Q54.5 -68.3 59.7 -65.3L53.6 -50.6Q48.6 -53.300000000000004 43.7 -54.650000000000006Q38.800000000000004 -56.0 34.2 -56.0Q30.1 -56.0 27.6 -55.150000000000006Q25.1 -54.300000000000004 24.0 -52.900000000000006Q22.900000000000002 -51.5 22.900000000000002 -49.7Q22.900000000000002 -47.400000000000006 25.050000000000004 -46.050000000000004Q27.200000000000003 -44.7 30.750000000000004 -43.85Q34.300000000000004 -43.0 38.550000000000004 -42.1Q42.800000000000004 -41.2 47.050000000000004 -39.85Q51.300000000000004 -38.5 54.800000000000004 -36.25Q58.300000000000004 -34.0 60.45 -30.35Q62.6 -26.700000000000003 62.6 -21.200000000000003Q62.6 -15.100000000000001 59.150000000000006 -9.950000000000001Q55.7 -4.800000000000001 48.85 -1.7000000000000002Q42.0 1.4000000000000001 31.6 1.4000000000000001ZM85.60000000000001 0.0V-54.300000000000004H64.10000000000001V-70.0H126.80000000000001V-54.300000000000004H105.4V0.0ZM168.5 1.4000000000000001Q160.1 1.4000000000000001 153.0 -1.2999999999999998Q145.9 -4.0 140.65 -8.95Q135.4 -13.9 132.5 -20.5Q129.6 -27.1 129.6 -35.0Q129.6 -42.900000000000006 132.5 -49.5Q135.4 -56.1 140.65 -61.05Q145.9 -66.0 153.0 -68.7Q160.1 -71.4 168.5 -71.4Q177.0 -71.4 184.05 -68.7Q191.10000000000002 -66.0 196.3 -61.05Q201.5 -56.1 204.45 -49.5Q207.4 -42.900000000000006 207.4 -35.0Q207.4 -27.1 204.45 -20.450000000000003Q201.5 -13.8 196.3 -8.9Q191.10000000000002 -4.0 184.05 -1.2999999999999998Q177.0 1.4000000000000001 168.5 1.4000000000000001ZM168.5 -15.0Q172.5 -15.0 175.95 -16.4Q179.4 -17.8 181.95 -20.450000000000003Q184.5 -23.1 185.95 -26.8Q187.4 -30.5 187.4 -35.0Q187.4 -39.6 185.95 -43.25Q184.5 -46.900000000000006 181.95 -49.550000000000004Q179.4 -52.2 175.95 -53.6Q172.5 -55.0 168.5 -55.0Q164.5 -55.0 161.05 -53.6Q157.6 -52.2 155.05 -49.550000000000004Q152.5 -46.900000000000006 151.05 -43.25Q149.6 -39.6 149.6 -35.0Q149.6 -30.5 151.05 -26.8Q152.5 -23.1 155.05 -20.450000000000003Q157.6 -17.8 161.05 -16.4Q164.5 -15.0 168.5 -15.0ZM216.8 0.0V-70.0H248.10000000000002Q263.40000000000003 -70.0 271.65000000000003 -63.05Q279.90000000000003 -56.1 279.90000000000003 -44.1Q279.90000000000003 -36.2 276.1 -30.450000000000003Q272.3 -24.700000000000003 265.35 -21.650000000000002Q258.40000000000003 -18.6 248.8 -18.6H227.8L236.60000000000002 -26.900000000000002V0.0ZM260.1 0.0 242.70000000000002 -25.5H263.8L281.3 0.0ZM236.60000000000002 -24.8 227.8 -33.9H247.60000000000002Q253.8 -33.9 256.85 -36.6Q259.90000000000003 -39.300000000000004 259.90000000000003 -44.1Q259.90000000000003 -49.0 256.85 -51.7Q253.8 -54.400000000000006 247.60000000000002 -54.400000000000006H227.8L236.60000000000002 -63.5ZM307.5 0.0V-29.6L312.1 -17.7L280.8 -70.0H301.7L324.3 -32.1H312.2L334.90000000000003 -70.0H354.1L322.90000000000003 -17.7L327.3 -29.6V0.0ZM395.20000000000005 0.6000000000000001Q387.20000000000005 0.6000000000000001 380.45000000000005 -2.05Q373.70000000000005 -4.7 368.75 -9.5Q363.8 -14.3 361.05 -20.8Q358.3 -27.3 358.3 -35.0Q358.3 -42.7 361.05 -49.2Q363.8 -55.7 368.8 -60.5Q373.8 -65.3 380.55 -67.95Q387.3 -70.60000000000001 395.3 -70.60000000000001Q403.3 -70.60000000000001 409.95000000000005 -68.10000000000001Q416.6 -65.60000000000001 421.3 -60.5L416.70000000000005 -55.800000000000004Q412.3 -60.2 407.0 -62.1Q401.70000000000005 -64.0 395.6 -64.0Q389.1 -64.0 383.65000000000003 -61.85Q378.20000000000005 -59.7 374.15000000000003 -55.75Q370.1 -51.800000000000004 367.85 -46.550000000000004Q365.6 -41.300000000000004 365.6 -35.0Q365.6 -28.8 367.85 -23.5Q370.1 -18.2 374.15000000000003 -14.25Q378.20000000000005 -10.3 383.65000000000003 -8.15Q389.1 -6.0 395.5 -6.0Q401.5 -6.0 406.85 -7.800000000000001Q412.20000000000005 -9.600000000000001 416.70000000000005 -13.9L420.90000000000003 -8.3Q415.90000000000003 -3.9000000000000004 409.20000000000005 -1.6500000000000001Q402.5 0.6000000000000001 395.20000000000005 0.6000000000000001ZM420.90000000000003 -8.3 413.8 -9.200000000000001V-35.0H420.90000000000003ZM440.8 0.0V-70.0H467.00000000000006Q480.30000000000007 -70.0 487.95000000000005 -63.650000000000006Q495.6 -57.300000000000004 495.6 -46.0Q495.6 -38.6 492.15000000000003 -33.25Q488.70000000000005 -27.900000000000002 482.30000000000007 -25.050000000000004Q475.90000000000003 -22.200000000000003 467.00000000000006 -22.200000000000003H444.90000000000003L448.20000000000005 -25.6V0.0ZM488.6 0.0 470.6 -25.400000000000002H478.6L496.70000000000005 0.0ZM448.20000000000005 -25.0 444.90000000000003 -28.5H466.8Q477.30000000000007 -28.5 482.75000000000006 -33.1Q488.20000000000005 -37.7 488.20000000000005 -46.0Q488.20000000000005 -54.400000000000006 482.75000000000006 -59.0Q477.30000000000007 -63.6 466.8 -63.6H444.90000000000003L448.20000000000005 -67.10000000000001ZM500.90000000000003 0.0 532.9000000000001 -70.0H540.2L572.2 0.0H564.4000000000001L535.0 -65.7H538.0L508.6 0.0ZM513.5 -18.7 515.7 -24.700000000000003H556.4000000000001L558.6 -18.7ZM582.8000000000001 0.0V-70.0H590.2V0.0ZM612.0000000000001 0.0V-70.0H618.1000000000001L666.4000000000001 -9.200000000000001H663.2000000000002V-70.0H670.5000000000001V0.0H664.4000000000001L616.2000000000002 -60.800000000000004H619.4000000000001V0.0Z"/></symbol></svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Storygrain Creative home">
+      <svg class="m" aria-hidden="true"><use href="#sg-mark"></use></svg>
+      <svg class="w" aria-hidden="true"><use href="#sg-word"></use></svg>
+    </a>
+    <span class="live mono">Content check</span>
+  </div>
+</header>
+
+<main id="app">
+  <section class="intro" id="intro">
+    <div class="wrap">
+      <span class="mono" style="color:var(--sage)">3 minutes · 10 questions</span>
+      <h1 style="margin-top:12px">What does your marketing actually need?</h1>
+      <p>Answer a few quick questions about where your business is today and where you want it in six months. You'll get a clear picture of what it takes to keep your content consistent.</p>
+      <div class="meta mono"><span>No sales pitch</span><span>No email required</span><span>Instant results</span></div>
+      <button class="btn btn-sage" id="start" type="button">Start the check <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+
+  <section class="stage" id="stage" hidden>
+    <div class="wrap">
+      <div class="frame" id="frame">
+        <i></i><i></i><i></i><i></i>
+        <div class="prog"><span class="mono" id="count">01 / 10</span><div class="ticks" id="ticks" aria-hidden="true"></div></div>
+        <div id="step"></div>
+        <div class="nav">
+          <button class="btn btn-ghost" id="back" type="button">Back</button>
+          <button class="btn btn-forest" id="next" type="button" disabled>Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage" id="results" hidden aria-live="polite">
+    <div class="wrap">
+      <div class="res-head">
+        <span class="mono">Your results</span>
+        <h2 id="r-title">Here's what would move the needle.</h2>
+        <p id="r-sum"></p>
+        <div class="fit"><div class="meter" id="r-meter"><span></span><span></span><span></span><span></span></div><span><b id="r-fit"></b> <span id="r-fitnote" style="color:rgba(241,237,230,.78)"></span></span></div>
+        <div class="snap" id="r-snap"></div>
+      </div>
+
+      <p class="group-label mono">What you need</p>
+      <ul class="recs" id="r-core"></ul>
+      <p class="group-label mono" id="r-proj-label">Projects to plan for</p>
+      <ul class="recs" id="r-proj"></ul>
+
+      <div class="send">
+        <h3>Want us to look at your results?</h3>
+        <p>Send them over and we'll follow up within two business days with honest next steps, even if we're not the right fit.</p>
+        <form id='send-form' method='POST' name='content-check' data-netlify='true'>
+          <input type="hidden" name="form-name" value="content-check">
+          <input type="hidden" name="results" id="f-results">
+          <input type="hidden" name="source" id="f-source">
+          <p hidden><label for="website-url">Leave this empty</label><input id="website-url" name="website-url"></p>
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field full"><label for="f-biz">Business name</label><input id="f-biz" name="business" autocomplete="organization"></div>
+          <div class="row">
+            <small>Your answers are included automatically.</small>
+            <button class="btn btn-forest" type="submit">Send my results <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+          </div>
+          <p class="sent-msg" id="sent" role="status" hidden></p>
+        </form>
+      </div>
+      <div class="again">
+        <a class="btn btn-ghost" href="/#contact">Book a call instead</a>
+        <button class="btn btn-ghost" id="restart" type="button">Start over</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Storygrain Creative · Omaha, NE</span>
+    <span><a href="/">storygrain.co</a> · hello@storygrain.co · <a href="/privacy/">Privacy</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+var ICON={
+  video:'<rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5l6-3.5v10l-6-3.5z"/>',
+  photo:'<path d="M3 8.5A2 2 0 0 1 5 6.5h2.2l1.6-2.2h6.4l1.6 2.2H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.8"/>',
+  plan:'<rect x="4.5" y="3.5" width="15" height="18" rx="2"/><path d="M9 3.5V2.5h6v1M8.5 9.5h7M8.5 13h7M8.5 16.5h4"/>',
+  social:'<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M12 15.6s-3-1.8-3-3.8a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 2-3 3.8-3 3.8z"/>',
+  ads:'<path d="M4 10v4h3l6 4V6L7 10z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/>',
+  web:'<rect x="2.5" y="4" width="19" height="15" rx="2"/><path d="M2.5 8.5h19M6 6.2h.01M8.5 6.2h.01"/>',
+  brand:'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>',
+  event:'<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+  film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 8h4M3 12h4M3 16h4M17 8h4M17 12h4M17 16h4"/>',
+  print:'<path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/>'
+};
+var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+
+var STEPS=[
+ {id:'type',q:'What kind of business are you?',kind:'one',opts:[
+   ['home','Home services','Contractors, pest control, landscaping, cleaning'],
+   ['pro','Professional services','Law, real estate, finance, healthcare'],
+   ['local','Local shop or restaurant','Retail, food, fitness, salons'],
+   ['regional','Regional company','Multiple locations or a larger team'],
+   ['nonprofit','Nonprofit','Mission-driven organization'],
+   ['new','New venture','Launching or less than a year old']]},
+ {id:'owner',q:'Who handles your marketing today?',kind:'one',cols:1,opts:[
+   ['nobody','Honestly, nobody','It happens when it happens'],
+   ['me','Me, when I can find the time','The owner or leader squeezes it in'],
+   ['part','Someone on staff, part-time','It is one of many hats they wear'],
+   ['agency','An outside agency or freelancer','And we are not thrilled with it'],
+   ['dedicated','A dedicated marketing person or team','We have someone whose job this is']]},
+ {id:'freq',q:'How often do you post on social media?',kind:'one',opts:[
+   ['never','Rarely or never',''],['monthly','A few times a month',''],
+   ['weekly','About once a week',''],['often','Several times a week','']]},
+ {id:'pain',q:'What frustrates you most about your marketing?',hint:'Pick up to 3.',kind:'multi',max:3,opts:[
+   ['time','No time to make content',''],['ideas','Not sure what to post',''],
+   ['amateur','Our content looks amateur',''],['inconsistent','We post in spurts, then go quiet',''],
+   ['results','Posting does not bring in business',''],['novideo','We have almost no video',''],
+   ['site','Our website is outdated',''],['brand','Our brand feels dated or inconsistent','']]},
+ {id:'goals',q:'What do you want to accomplish in the next six months?',hint:'Pick up to 2.',kind:'multi',max:2,opts:[
+   ['leads','More leads and customers',''],['aware','Get known in the community',''],
+   ['credible','Look more established and professional',''],['hire','Recruit and hire good people',''],
+   ['launch','Launch something new',''],['impact','Show supporters our impact','']]},
+ {id:'assets',q:'What photos and video do you have right now?',kind:'one',opts:[
+   ['none','Basically nothing',''],['phone','Phone pictures here and there',''],
+   ['old','Some professional work, but it is dated',''],['fresh','Recent professional photo and video','']]},
+ {id:'help',q:'Where do you want help on social media?',hint:'Pick all that apply.',kind:'multi',max:4,opts:[
+   ['create','Creating the content','Video, photos and captions'],
+   ['post','Posting and scheduling it','Someone else hits publish'],
+   ['plan','Knowing what to say','A plan behind every post'],
+   ['ads','Running paid ads','Facebook and Instagram ads']]},
+ {id:'brandweb',q:'How are your website and brand holding up?',kind:'pair',parts:[
+   {id:'web',label:'Website',opts:[['none','Don\'t have one',''],['old','Outdated',''],['ok','Works fine','']]},
+   {id:'logo',label:'Logo and brand',opts:[['none','Don\'t have one',''],['old','Needs a refresh',''],['ok','Solid','']]}]},
+ {id:'extras',q:'Anything else on your list this year?',hint:'Pick all that apply.',kind:'multi',max:4,exclusive:'nada',opts:[
+   ['event','Covering an event','Gala, launch, open house'],
+   ['film','A longer brand or story video','2 to 5 minutes'],
+   ['print','Printed pieces','Flyers, signs, mailers'],
+   ['nada','Nothing else right now','']]},
+ {id:'involve',q:'How involved do you want to be?',kind:'one',cols:1,opts:[
+   ['hands','Mostly hands-off','Handle it and keep me in the loop'],
+   ['collab','A true partner','Plan together monthly, then you run with it'],
+   ['lead','You lead, we create','Your team sets the ideas and direction. We bring them to life.']]}
+];
+var N=STEPS.length, i=0, A={};
+
+var $=function(id){return document.getElementById(id)};
+var stepEl=$('step'), next=$('next'), back=$('back');
+$('ticks').innerHTML=STEPS.map(function(){return '<span></span>'}).join('');
+
+function optHTML(name,o,multi,checked){
+  var id=name+'-'+o[0];
+  return '<label class="opt'+(multi?' multi':'')+'" for="'+id+'"><input type="'+(multi?'checkbox':'radio')+'" name="'+name+'" id="'+id+'" value="'+o[0]+'"'+(checked?' checked':'')+'>'+
+    '<span class="box" aria-hidden="true">'+CHECK+'</span><span class="t"><b>'+o[1]+'</b>'+(o[2]?'<small>'+o[2]+'</small>':'')+'</span></label>';
+}
+function render(){
+  var s=STEPS[i];
+  $('count').textContent=String(i+1).padStart(2,'0')+' / '+N;
+  [].forEach.call($('ticks').children,function(t,k){t.className=k<i?'t-done':(k===i?'t-now':'')});
+  var h='<fieldset class="step-in"><legend>'+s.q+'</legend>'+(s.hint?'<p class="hint">'+s.hint+'</p>':'');
+  if(s.kind==='pair'){
+    s.parts.forEach(function(p){
+      h+='<div class="sub"><h3>'+p.label+'</h3><div class="opts">'+p.opts.map(function(o){return optHTML(p.id,o,false,A[p.id]===o[0])}).join('')+'</div></div>';
+    });
+  } else {
+    var multi=s.kind==='multi', cur=A[s.id]||(multi?[]:null);
+    h+='<div class="opts'+(s.cols===1?' one-col':'')+'">'+s.opts.map(function(o){return optHTML(s.id,o,multi,multi?cur.indexOf(o[0])>-1:cur===o[0])}).join('')+'</div>';
+  }
+  h+='</fieldset>';
+  stepEl.innerHTML=h;
+  back.style.visibility=i===0?'hidden':'visible';
+  next.innerHTML=(i===N-1?'See my results':'Next')+' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
+  sync();
+}
+function sync(){
+  var s=STEPS[i];
+  if(s.kind==='pair'){
+    s.parts.forEach(function(p){var c=stepEl.querySelector('input[name="'+p.id+'"]:checked');A[p.id]=c?c.value:undefined});
+    next.disabled=!s.parts.every(function(p){return A[p.id]});
+  } else if(s.kind==='multi'){
+    var boxes=[].slice.call(stepEl.querySelectorAll('input'));
+    var vals=boxes.filter(function(b){return b.checked}).map(function(b){return b.value});
+    A[s.id]=vals;
+    boxes.forEach(function(b){var lock=!b.checked&&vals.length>=s.max;b.disabled=lock;b.closest('.opt').classList.toggle('locked',lock)});
+    next.disabled=vals.length===0;
+  } else {
+    var c=stepEl.querySelector('input:checked'); A[s.id]=c?c.value:undefined; next.disabled=!A[s.id];
+  }
+}
+stepEl.addEventListener('change',function(e){
+  var s=STEPS[i];
+  if(s.exclusive&&e.target.type==='checkbox'&&e.target.checked){
+    [].forEach.call(stepEl.querySelectorAll('input'),function(b){
+      if(e.target.value===s.exclusive){ if(b!==e.target) b.checked=false; }
+      else if(b.value===s.exclusive) b.checked=false;
+    });
+  }
+  sync();
+  if(s.kind==='one'&&!('ontouchstart' in window)) {/* keep explicit Next for clarity */}
+});
+next.addEventListener('click',function(){ if(next.disabled) return; if(i<N-1){i++;render();focusTop()} else showResults(); });
+back.addEventListener('click',function(){ if(i>0){i--;render();focusTop()} });
+function focusTop(){ var f=$('frame'); var y=f.getBoundingClientRect().top+window.scrollY-90; if(window.scrollY>y) window.scrollTo({top:y,behavior:'smooth'}); var l=stepEl.querySelector('legend'); if(l){l.setAttribute('tabindex','-1');l.focus({preventScroll:true})} }
+
+$('start').addEventListener('click',function(){ $('intro').hidden=true; $('stage').hidden=false; render(); focusTop(); });
+$('restart').addEventListener('click',function(){ A={}; i=0; $('results').hidden=true; $('intro').hidden=false; $('sent').hidden=true; window.scrollTo({top:0}); });
+
+var has=function(k,v){return (A[k]||[]).indexOf(v)>-1};
+var label=function(stepId,v){var s=STEPS.filter(function(x){return x.id===stepId})[0];var o=s.opts.filter(function(o){return o[0]===v})[0];return o?o[1]:v};
+
+function showResults(){
+  var core=[], proj=[];
+  var rarely=A.freq==='never'||A.freq==='monthly';
+  var noOwner=A.owner==='nobody'||A.owner==='me'||A.owner==='part';
+  var lowAssets=A.assets==='none'||A.assets==='phone'||A.assets==='old';
+
+  if(has('help','create')||has('pain','time')||has('pain','inconsistent')||has('pain','novideo')||rarely)
+    core.push({ic:'video',tag:'Monthly content',t:'A steady stream of short-form video',
+      p:(rarely?'You are posting '+label('freq',A.freq).toLowerCase()+'. ':'')+'Fresh Reels and short videos every month keep you visible without anyone on your team filming.',core:1});
+  if(has('help','plan')||has('pain','ideas')||has('pain','results')||has('goals','leads'))
+    core.push({ic:'plan',tag:'Strategy',t:'A content plan with a goal behind it',
+      p:'Scripts, shot lists and captions written before the shoot, built around '+(A.goals&&A.goals.length?label('goals',A.goals[0]).toLowerCase():'your goals')+'. Every post has a reason to exist.',core:1});
+  if(lowAssets||has('pain','amateur'))
+    core.push({ic:'photo',tag:'Photo',t:'A real photo library of your business',
+      p:'Your people, your place and your work, shot professionally so your feed, site and ads stop relying on '+(A.assets==='phone'?'phone pictures':A.assets==='old'?'dated images':'stock or nothing')+'.'});
+  if(has('help','post')||A.owner==='nobody')
+    core.push({ic:'social',tag:'Publishing',t:'Someone who handles posting',
+      p:'A monthly calendar, scheduled and published for you, so consistency does not depend on anyone remembering.'});
+  if(has('help','ads')||(has('goals','leads')&&has('pain','results')))
+    core.push({ic:'ads',tag:'Paid social',t:'Facebook and Instagram ads',
+      p:'Targeted ads in front of people in your area, using the content we already create, with a monthly look at what is working.'});
+  if(!core.length) core.push({ic:'plan',tag:'Strategy',t:'A sharper plan for what you already do',
+      p:'You have the basics covered. A planning session could focus your content on the goals you picked.',core:1});
+
+  if(A.web==='none'||A.web==='old'||has('pain','site'))
+    proj.push({ic:'web',tag:'Project',t:A.web==='none'?'A website':'A website refresh',p:'A clean, fast site that matches your content and turns visits into calls. Planned as its own project.'});
+  if(A.logo==='none'||A.logo==='old'||has('pain','brand'))
+    proj.push({ic:'brand',tag:'Project',t:A.logo==='none'?'A logo and brand identity':'A brand refresh',p:'Logo, colors and type that look as established as your business is. Best done before content ramps up.'});
+  if(has('extras','event')) proj.push({ic:'event',tag:'Project',t:'Event coverage',p:'Photo and video of your event, edited into highlights and posts you can use for months.'});
+  if(has('extras','film')) proj.push({ic:'film',tag:'Project',t:'A brand film',p:'A 2 to 5 minute story video about who you are and why it matters.'});
+  if(has('extras','print')) proj.push({ic:'print',tag:'Project',t:'Printed pieces',p:'Flyers, signs and mailers designed to match the rest of your brand.'});
+
+  // fit
+  var score=0;
+  score+={nobody:2,me:2,part:1,agency:1,dedicated:0}[A.owner]||0;
+  score+={hands:2,collab:2,lead:1}[A.involve]||0;
+  if(core.length>=3) score+=1;
+  var lvl=score>=5?4:score>=4?3:score>=2?2:1;
+  var fit=['','Let\'s talk it through.','Possible fit.','Good fit.','Strong fit.'][lvl];
+  var note=A.involve==='lead'?'You know where you want to go. We handle production so your ideas actually get made.'
+    :A.owner==='dedicated'?'You have a marketing person. We work well as their production team.'
+    :lvl>=3?'This is exactly the kind of business we built Storygrain for.':'Let\'s see if what we do lines up with what you need.';
+
+  var lead={nobody:'Nobody owns marketing right now, so content keeps slipping. ',me:'You are doing marketing between everything else, so it is the first thing to slip. ',part:'Marketing is one of many hats someone is wearing, so it never gets full attention. ',agency:'You have outside help, but it is not delivering what you need. ',dedicated:'You have someone on marketing. The gap is production. '}[A.owner]||'';
+  $('r-sum').textContent=lead+'Here is what it would take to stay consistent and reach '+(A.goals&&A.goals.length?A.goals.map(function(g){return label('goals',g).toLowerCase()}).join(' and '):'your goals')+'.';
+  $('r-fit').textContent=fit; $('r-fitnote').textContent=note;
+  [].forEach.call($('r-meter').children,function(s,k){s.className=k<lvl?'on':''});
+  var snap=['Marketing: '+label('owner',A.owner),'Posting: '+label('freq',A.freq),'Assets: '+label('assets',A.assets)];
+  $('r-snap').innerHTML=snap.map(function(x){return '<span>'+x+'</span>'}).join('');
+
+  var li=function(r,cls){return '<li class="rec'+(r.core?' core':'')+(cls?' '+cls:'')+'"><span class="ic">'+svg(r.ic)+'</span><div><span class="tag mono">'+r.tag+'</span><h3>'+r.t+'</h3><p>'+r.p+'</p></div></li>'};
+  $('r-core').innerHTML=core.map(function(r){return li(r)}).join('');
+  $('r-proj').innerHTML=proj.map(function(r){return li(r,'extra')}).join('');
+  $('r-proj-label').hidden=!proj.length;
+
+  // summary text for the form
+  var lines=STEPS.map(function(s){
+    if(s.kind==='pair') return s.q+' Website: '+label2('brandweb','web',A.web)+'; Brand: '+label2('brandweb','logo',A.logo);
+    var v=A[s.id]; return s.q+' '+(Array.isArray(v)?v.map(function(x){return label(s.id,x)}).join(', '):label(s.id,v));
+  });
+  lines.push('Fit: '+fit); lines.push('Needs: '+core.map(function(r){return r.t}).concat(proj.map(function(r){return r.t})).join('; '));
+  $('f-results').value=lines.join('\n');
+
+  $('stage').hidden=true; $('results').hidden=false; window.scrollTo({top:0});
+  // PIXEL: if(window.fbq) fbq('track','CompleteRegistration');
+}
+function label2(stepId,partId,v){var s=STEPS.filter(function(x){return x.id===stepId})[0];var p=s.parts.filter(function(p){return p.id===partId})[0];var o=p.opts.filter(function(o){return o[0]===v})[0];return o?o[1]:v}
+function svg(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICON[k]+'</svg>'}
+
+// send results: posts to Netlify Forms on the live site; in a preview it just confirms
+var form=$('send-form'), sent=$('sent');
+// remember where the visitor came from (ad, post, link) so each submission shows its source
+try{ var qs=new URLSearchParams(location.search), src=['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){return qs.get(k)?k.replace('utm_','')+'='+qs.get(k):''}).filter(Boolean).join(' · ');
+  $('f-source').value=src||(document.referrer?'referrer='+document.referrer:'direct'); }catch(e){}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!form.reportValidity()) return;
+  var live=/(^|\.)storygrain\.co$|netlify\.app$/.test(location.hostname);
+  if(!live){ sent.textContent='Preview mode: on storygrain.co this sends your results to the team.'; sent.hidden=false; return; }
+  var btn=form.querySelector('button[type="submit"]'); btn.disabled=true;
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(function(r){ if(!r.ok) throw 0; sent.textContent="Got it. We'll be in touch within two business days."; sent.hidden=false; form.reset();
+      /* PIXEL: if(window.fbq) fbq('track','Lead'); */ })
+    .catch(function(){ sent.textContent='That did not send. Email hello@storygrain.co and we will take it from there.'; sent.hidden=false; })
+    .then(function(){ btn.disabled=false; });
+});
+})();
+</script>
+</body>
+</html>

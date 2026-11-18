@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Packages | Storygrain Creative</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#2D3A33">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--forest:#2D3A33;--deep:#243029;--sage:#A9B59B;--cream:#F1EDE6;--card:#F8F5EF;--ink:#1C1F1D;--muted:#5B625C;--line:#D9D3C7;--tint:#E6E1D6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:3px;border-radius:4px}
+header{background:var(--forest);color:var(--cream);position:relative}
+header .wrap{padding-block:28px 56px;position:relative}
+.c{position:absolute;width:20px;height:20px;border:0 solid rgba(241,237,230,.5)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
+.brand .m{width:16px;height:38px;color:var(--sage)} .brand .w{width:160px;height:17px}
+.top .mono{color:var(--sage)}
+header h1{margin-top:44px;font-size:clamp(2rem,5vw,3.4rem);line-height:1.04;font-weight:800;letter-spacing:-.02em;max-width:16ch;text-wrap:balance}
+header p{margin-top:16px;max-width:56ch;color:rgba(241,237,230,.82);font-size:1.08rem}
+main .wrap{padding-block:44px 64px}
+.label{color:var(--muted);margin-bottom:14px}
+.pk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 24px;display:flex;flex-direction:column;min-width:0}
+.card.hl{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.card .n{color:var(--muted)} .card.hl .n{color:var(--sage)}
+.card h2{margin-top:6px;font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+.price{margin-top:10px;display:flex;align-items:baseline;gap:6px}
+.price b{font-size:2.3rem;font-weight:800;letter-spacing:-.02em} .price span{color:var(--muted)} .card.hl .price span{color:rgba(241,237,230,.7)}
+.for{margin-top:10px;color:var(--muted);font-size:.95rem;min-height:2.9em} .card.hl .for{color:rgba(241,237,230,.8)}
+.who{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.who .mono{color:var(--muted);font-size:.62rem} .who b{font-size:1.05rem;font-weight:800;color:var(--forest)}
+.card.hl .who{border-color:rgba(241,237,230,.2)} .card.hl .who .mono{color:var(--sage)} .card.hl .who b{color:var(--cream)}
+.shoot{margin-top:12px;padding:9px 12px;border-radius:8px;background:var(--tint);font-weight:600;font-size:.92rem;color:var(--forest)}
+.card.hl .shoot{background:rgba(169,181,155,.2);color:var(--cream)}
+ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:9px}
+li{display:flex;gap:10px;font-size:.95rem;line-height:1.4}
+.ck{flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center}
+.ck svg{width:11px;height:11px}
+.card.hl .ck{background:var(--sage);color:var(--forest)}
+.row{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:22px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;min-width:0}
+.box h3{font-size:1.1rem;font-weight:800;color:var(--forest);margin-bottom:12px}
+.inc{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;margin:0}
+.adds{display:grid;gap:10px}
+.adds div{display:flex;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px dashed var(--line);font-size:.95rem}
+.adds div:last-child{border:0;padding:0}
+.adds b{font-weight:600;color:var(--forest);white-space:nowrap}
+.proj{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;background:var(--sage);border-radius:14px;padding:18px 24px;color:var(--forest)}
+.proj b{font-weight:800}
+.excl{margin-top:16px;font-size:.88rem;color:var(--muted)} .excl b{color:var(--forest);font-weight:600}
+.actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font-weight:600;text-decoration:none}
+.btn svg{width:18px;height:18px}
+.btn-forest{background:var(--forest);color:var(--cream)} .btn-forest:hover{background:var(--deep)}
+.btn-ghost{color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--line)} .btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--forest)}
+footer{background:var(--forest);color:var(--cream)}
+footer .wrap{padding-block:26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer .cta b{display:block;font-weight:800} footer .cta span{color:rgba(241,237,230,.75);font-size:.9rem}
+footer .cta a{color:var(--sage)}
+footer .ct{color:var(--sage);text-align:right;line-height:1.8}
+@media (max-width:900px){.pk{grid-template-columns:1fr}.for{min-height:0}.row{grid-template-columns:1fr}}
+@media (max-width:520px){.inc{grid-template-columns:1fr}footer .ct{text-align:left}}
+@media print{.actions{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sg-mark" viewBox="30 30 172.4 400"><path fill="currentColor" fill-rule="nonzero" transform="translate(-33.21,-14.81) scale(0.96216)" d="M68.576,261.172C61.111,268.260 65.241,339.837 116.769,374.726C162.169,405.465 186.120,404.395 229.743,462.306C256.833,407.864 221.798,348.760 164.206,317.936C137.459,303.622 113.824,290.711 68.576,261.172ZM80.337,149.884C63.739,236.819 144.836,274.809 159.068,283.302C195.333,304.945 203.330,307.549 237.235,349.430C257.868,304.022 236.383,242.703 178.347,208.503C151.943,192.944 132.535,183.903 80.337,149.884ZM146.998,46.574C127.227,69.474 131.690,119.294 143.882,139.612C167.914,179.664 190.372,173.255 236.967,231.032C248.031,217.300 245.006,178.319 233.134,153.162C212.217,108.838 172.708,106.866 146.998,46.574Z"/></symbol><symbol id="sg-word" viewBox="28 28 686 74"><path fill="currentColor" fill-rule="nonzero" transform="translate(30.00,100.00) scale(1.00000)" d="M31.6 1.4000000000000001Q23.0 1.4000000000000001 15.05 -0.7500000000000001Q7.1000000000000005 -2.9000000000000004 2.1 -6.300000000000001L8.6 -20.900000000000002Q13.3 -17.900000000000002 19.450000000000003 -15.950000000000001Q25.6 -14.0 31.700000000000003 -14.0Q35.800000000000004 -14.0 38.300000000000004 -14.75Q40.800000000000004 -15.5 41.95 -16.75Q43.1 -18.0 43.1 -19.700000000000003Q43.1 -22.1 40.900000000000006 -23.5Q38.7 -24.900000000000002 35.2 -25.800000000000004Q31.700000000000003 -26.700000000000003 27.450000000000003 -27.6Q23.200000000000003 -28.5 18.950000000000003 -29.9Q14.700000000000001 -31.3 11.200000000000001 -33.550000000000004Q7.7 -35.800000000000004 5.5 -39.45Q3.3000000000000003 -43.1 3.3000000000000003 -48.7Q3.3000000000000003 -55.0 6.750000000000001 -60.1Q10.200000000000001 -65.2 17.1 -68.30000000000001Q24.0 -71.4 34.300000000000004 -71.4Q41.2 -71.4 47.85 -69.85Q54.5 -68.3 59.7 -65.3L53.6 -50.6Q48.6 -53.300000000000004 43.7 -54.650000000000006Q38.800000000000004 -56.0 34.2 -56.0Q30.1 -56.0 27.6 -55.150000000000006Q25.1 -54.300000000000004 24.0 -52.900000000000006Q22.900000000000002 -51.5 22.900000000000002 -49.7Q22.900000000000002 -47.400000000000006 25.050000000000004 -46.050000000000004Q27.200000000000003 -44.7 30.750000000000004 -43.85Q34.300000000000004 -43.0 38.550000000000004 -42.1Q42.800000000000004 -41.2 47.050000000000004 -39.85Q51.300000000000004 -38.5 54.800000000000004 -36.25Q58.300000000000004 -34.0 60.45 -30.35Q62.6 -26.700000000000003 62.6 -21.200000000000003Q62.6 -15.100000000000001 59.150000000000006 -9.950000000000001Q55.7 -4.800000000000001 48.85 -1.7000000000000002Q42.0 1.4000000000000001 31.6 1.4000000000000001ZM85.60000000000001 0.0V-54.300000000000004H64.10000000000001V-70.0H126.80000000000001V-54.300000000000004H105.4V0.0ZM168.5 1.4000000000000001Q160.1 1.4000000000000001 153.0 -1.2999999999999998Q145.9 -4.0 140.65 -8.95Q135.4 -13.9 132.5 -20.5Q129.6 -27.1 129.6 -35.0Q129.6 -42.900000000000006 132.5 -49.5Q135.4 -56.1 140.65 -61.05Q145.9 -66.0 153.0 -68.7Q160.1 -71.4 168.5 -71.4Q177.0 -71.4 184.05 -68.7Q191.10000000000002 -66.0 196.3 -61.05Q201.5 -56.1 204.45 -49.5Q207.4 -42.900000000000006 207.4 -35.0Q207.4 -27.1 204.45 -20.450000000000003Q201.5 -13.8 196.3 -8.9Q191.10000000000002 -4.0 184.05 -1.2999999999999998Q177.0 1.4000000000000001 168.5 1.4000000000000001ZM168.5 -15.0Q172.5 -15.0 175.95 -16.4Q179.4 -17.8 181.95 -20.450000000000003Q184.5 -23.1 185.95 -26.8Q187.4 -30.5 187.4 -35.0Q187.4 -39.6 185.95 -43.25Q184.5 -46.900000000000006 181.95 -49.550000000000004Q179.4 -52.2 175.95 -53.6Q172.5 -55.0 168.5 -55.0Q164.5 -55.0 161.05 -53.6Q157.6 -52.2 155.05 -49.550000000000004Q152.5 -46.900000000000006 151.05 -43.25Q149.6 -39.6 149.6 -35.0Q149.6 -30.5 151.05 -26.8Q152.5 -23.1 155.05 -20.450000000000003Q157.6 -17.8 161.05 -16.4Q164.5 -15.0 168.5 -15.0ZM216.8 0.0V-70.0H248.10000000000002Q263.40000000000003 -70.0 271.65000000000003 -63.05Q279.90000000000003 -56.1 279.90000000000003 -44.1Q279.90000000000003 -36.2 276.1 -30.450000000000003Q272.3 -24.700000000000003 265.35 -21.650000000000002Q258.40000000000003 -18.6 248.8 -18.6H227.8L236.60000000000002 -26.900000000000002V0.0ZM260.1 0.0 242.70000000000002 -25.5H263.8L281.3 0.0ZM236.60000000000002 -24.8 227.8 -33.9H247.60000000000002Q253.8 -33.9 256.85 -36.6Q259.90000000000003 -39.300000000000004 259.90000000000003 -44.1Q259.90000000000003 -49.0 256.85 -51.7Q253.8 -54.400000000000006 247.60000000000002 -54.400000000000006H227.8L236.60000000000002 -63.5ZM307.5 0.0V-29.6L312.1 -17.7L280.8 -70.0H301.7L324.3 -32.1H312.2L334.90000000000003 -70.0H354.1L322.90000000000003 -17.7L327.3 -29.6V0.0ZM395.20000000000005 0.6000000000000001Q387.20000000000005 0.6000000000000001 380.45000000000005 -2.05Q373.70000000000005 -4.7 368.75 -9.5Q363.8 -14.3 361.05 -20.8Q358.3 -27.3 358.3 -35.0Q358.3 -42.7 361.05 -49.2Q363.8 -55.7 368.8 -60.5Q373.8 -65.3 380.55 -67.95Q387.3 -70.60000000000001 395.3 -70.60000000000001Q403.3 -70.60000000000001 409.95000000000005 -68.10000000000001Q416.6 -65.60000000000001 421.3 -60.5L416.70000000000005 -55.800000000000004Q412.3 -60.2 407.0 -62.1Q401.70000000000005 -64.0 395.6 -64.0Q389.1 -64.0 383.65000000000003 -61.85Q378.20000000000005 -59.7 374.15000000000003 -55.75Q370.1 -51.800000000000004 367.85 -46.550000000000004Q365.6 -41.300000000000004 365.6 -35.0Q365.6 -28.8 367.85 -23.5Q370.1 -18.2 374.15000000000003 -14.25Q378.20000000000005 -10.3 383.65000000000003 -8.15Q389.1 -6.0 395.5 -6.0Q401.5 -6.0 406.85 -7.800000000000001Q412.20000000000005 -9.600000000000001 416.70000000000005 -13.9L420.90000000000003 -8.3Q415.90000000000003 -3.9000000000000004 409.20000000000005 -1.6500000000000001Q402.5 0.6000000000000001 395.20000000000005 0.6000000000000001ZM420.90000000000003 -8.3 413.8 -9.200000000000001V-35.0H420.90000000000003ZM440.8 0.0V-70.0H467.00000000000006Q480.30000000000007 -70.0 487.95000000000005 -63.650000000000006Q495.6 -57.300000000000004 495.6 -46.0Q495.6 -38.6 492.15000000000003 -33.25Q488.70000000000005 -27.900000000000002 482.30000000000007 -25.050000000000004Q475.90000000000003 -22.200000000000003 467.00000000000006 -22.200000000000003H444.90000000000003L448.20000000000005 -25.6V0.0ZM488.6 0.0 470.6 -25.400000000000002H478.6L496.70000000000005 0.0ZM448.20000000000005 -25.0 444.90000000000003 -28.5H466.8Q477.30000000000007 -28.5 482.75000000000006 -33.1Q488.20000000000005 -37.7 488.20000000000005 -46.0Q488.20000000000005 -54.400000000000006 482.75000000000006 -59.0Q477.30000000000007 -63.6 466.8 -63.6H444.90000000000003L448.20000000000005 -67.10000000000001ZM500.90000000000003 0.0 532.9000000000001 -70.0H540.2L572.2 0.0H564.4000000000001L535.0 -65.7H538.0L508.6 0.0ZM513.5 -18.7 515.7 -24.700000000000003H556.4000000000001L558.6 -18.7ZM582.8000000000001 0.0V-70.0H590.2V0.0ZM612.0000000000001 0.0V-70.0H618.1000000000001L666.4000000000001 -9.200000000000001H663.2000000000002V-70.0H670.5000000000001V0.0H664.4000000000001L616.2000000000002 -60.800000000000004H619.4000000000001V0.0Z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <div class="c" style="top:16px;left:6px;border-top-width:2px;border-left-width:2px"></div>
+    <div class="c" style="top:16px;right:6px;border-top-width:2px;border-right-width:2px"></div>
+    <div class="c" style="bottom:16px;left:6px;border-bottom-width:2px;border-left-width:2px"></div>
+    <div class="c" style="bottom:16px;right:6px;border-bottom-width:2px;border-right-width:2px"></div>
+    <div class="top">
+      <a class="brand" href="/" aria-label="Storygrain Creative home"><svg class="m" aria-hidden="true"><use href="#sg-mark"></use></svg><svg class="w" aria-hidden="true"><use href="#sg-word"></use></svg></a>
+      <span class="mono">Monthly content partnerships</span>
+    </div>
+    <h1>The marketing team for businesses that don't have&nbsp;one.</h1>
+    <p>Every month we plan, shoot and deliver finished video, photo and social content. Scripts, shot lists and captions are written before we pick up a camera, so nothing is&nbsp;improvised.</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <p class="label mono">Choose your level</p>
+    <div class="pk"><article class="card"><span class="n mono">01</span><h2>Starter</h2><div class="price"><b>$2,000</b><span>/ month</span></div><p class="for">For businesses ready to start showing up&nbsp;consistently.</p><div class="who"><span class="mono">Who posts</span><b>You post</b></div><div class="shoot">2-hour monthly shoot</div><ul><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>6 short-form&nbsp;videos</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>15 edited&nbsp;photos</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Scripts and shot&nbsp;list</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Captions for every&nbsp;post</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Suggested post&nbsp;dates</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Delivered ready to&nbsp;post</span></li></ul></article><article class="card hl"><span class="n mono">02</span><h2>Standard</h2><div class="price"><b>$3,500</b><span>/ month</span></div><p class="for">For businesses that want their feed running without&nbsp;them.</p><div class="who"><span class="mono">Who posts</span><b>We post for you</b></div><div class="shoot">4-hour monthly shoot</div><ul><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>10 short-form&nbsp;videos</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>30 edited&nbsp;photos</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Everything in&nbsp;Starter</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Monthly content&nbsp;calendar</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Monthly planning&nbsp;call</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Scheduled and published to Instagram and&nbsp;Facebook</span></li></ul></article><article class="card"><span class="n mono">03</span><h2>Full</h2><div class="price"><b>$6,000</b><span>/ month</span></div><p class="for">For businesses ready to grow with ads, campaigns and&nbsp;reporting.</p><div class="who"><span class="mono">Who posts</span><b>We run it</b></div><div class="shoot">6 to 8-hour monthly shoot</div><ul><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Videos scoped to your monthly&nbsp;plan</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Full photo&nbsp;library</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Everything in&nbsp;Standard</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Quarterly campaign&nbsp;planning</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Meta and Instagram ad&nbsp;management</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Monthly performance&nbsp;review</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Ongoing communications&nbsp;counsel</span></li></ul></article></div>
+    <div class="row">
+      <div class="box"><h3>Every partnership includes</h3><ul class="inc"><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Delivery by the 1st of the&nbsp;month</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>One revision round per&nbsp;piece</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>You own every&nbsp;file</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Fixed deliverables, no&nbsp;guessing</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Three-month initial&nbsp;commitment</span></li><li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span>Content planned before the&nbsp;shoot</span></li></ul></div>
+      <div class="box"><h3>Add-ons</h3><div class="adds"><div><span>Additional short-form video edit</span><b>$150</b></div><div><span>Long-form video edit (2 to 5 min)</span><b>$750</b></div><div><span>Additional on-location shoot</span><b>$200/hr</b></div></div></div>
+    </div>
+    <div class="proj"><b>Quoted per project</b><span>Websites, logos and brand identity, print design, event coverage and brand&nbsp;films.</span></div>
+    <p class="excl"><b>Not included in packages:</b> paid ad spend, community management (replying to comments and messages, which is separate from posting), SEO and website&nbsp;work.</p>
+    <div class="actions">
+      <a class="btn btn-forest" href="/#contact">Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="/packages/storygrain-packages.pdf">Download PDF</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cta"><b>Not sure which fits?</b><span>Take the 3-minute <a href="/check/">Content Check</a>.</span></div>
+    <div class="ct mono">hello@storygrain.co<br>storygrain.co · @storygrain.co<br>Eric Wendt &amp; Austin Asay · Omaha, NE</div>
+  </div>
+</footer>
+</body>
+</html>

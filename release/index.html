@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Appearance Release | Storygrain Creative</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#2D3A33">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--forest:#2D3A33;--sage:#A9B59B;--cream:#F1EDE6;--card:#F8F5EF;--ink:#1C1F1D;--muted:#5B625C;--line:#D9D3C7;--tint:#E6E1D6;--err:#9B3B2E}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.5;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+h1,h2,p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:4px}
+header{background:var(--forest);color:var(--cream)}
+header .wrap{padding-block:26px 40px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
+.brand .m{width:16px;height:38px;color:var(--sage)} .brand .w{width:160px;height:17px}
+.top .mono{color:var(--sage)}
+header h1{margin-top:36px;font-size:clamp(1.9rem,6vw,2.8rem);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+header p{margin-top:12px;color:rgba(241,237,230,.82);max-width:52ch}
+main .wrap{padding-block:28px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 20px;margin-bottom:18px}
+@media(min-width:600px){.card{padding:30px 32px}}
+.label{color:var(--muted);margin-bottom:14px}
+.terms{display:grid;gap:12px;font-size:.95rem}
+.terms p b{font-weight:600}
+.fields{display:grid;gap:16px}
+@media(min-width:600px){.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}}
+.two{display:grid;gap:16px}
+label.f{display:grid;gap:6px;font-weight:600;font-size:.92rem}
+label.f small{font-weight:400;color:var(--muted)}
+input[type=text],input[type=email],input[type=tel]{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;font-size:16px;color:var(--ink)}
+input:focus{outline:2px solid var(--forest);outline-offset:1px;border-color:var(--forest)}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:.95rem;cursor:pointer}
+.check input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--forest)}
+.minor{display:none;gap:16px}
+.minor.on{display:grid}
+.sighead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
+.sighead b{font-weight:600}
+.clear{background:none;border:0;padding:8px 4px;font:inherit;font-size:.9rem;color:var(--muted);text-decoration:underline;cursor:pointer;min-height:44px}
+.pad{position:relative;height:200px;border:1.5px dashed var(--sage);border-radius:12px;background:#fff;touch-action:none;overflow:hidden}
+.pad.bad{border-color:var(--err)}
+.pad canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.pad .line{position:absolute;left:24px;right:24px;bottom:46px;border-top:1px solid var(--line);pointer-events:none}
+.pad .x{position:absolute;left:24px;bottom:52px;color:var(--muted);font-size:1.1rem;pointer-events:none}
+.pad .hint{position:absolute;inset:auto 0 16px;text-align:center;color:var(--muted);pointer-events:none;transition:opacity .2s}
+.pad.has .hint{opacity:0}
+.meta{margin-top:10px;color:var(--muted);font-size:.85rem}
+.err{color:var(--err);font-size:.9rem;margin-top:8px;min-height:1.2em}
+button.go{width:100%;min-height:54px;border:0;border-radius:999px;background:var(--forest);color:var(--cream);font:inherit;font-weight:600;font-size:1.05rem;cursor:pointer}
+button.go:disabled{opacity:.6;cursor:default}
+.done{display:none;text-align:center;padding:48px 24px}
+.done.on{display:block}
+.done svg.ok{width:56px;height:56px;color:var(--forest)}
+.done h2{margin-top:16px;font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.done p{margin-top:8px;color:var(--muted)}
+.again{margin-top:22px;display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--forest);background:none;font:inherit;font-weight:600;color:var(--forest);cursor:pointer}
+.hide{position:absolute;left:-9999px}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:0 20px 40px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sg-mark" viewBox="30 30 172.4 400"><path fill="currentColor" fill-rule="nonzero" transform="translate(-33.21,-14.81) scale(0.96216)" d="M68.576,261.172C61.111,268.260 65.241,339.837 116.769,374.726C162.169,405.465 186.120,404.395 229.743,462.306C256.833,407.864 221.798,348.760 164.206,317.936C137.459,303.622 113.824,290.711 68.576,261.172ZM80.337,149.884C63.739,236.819 144.836,274.809 159.068,283.302C195.333,304.945 203.330,307.549 237.235,349.430C257.868,304.022 236.383,242.703 178.347,208.503C151.943,192.944 132.535,183.903 80.337,149.884ZM146.998,46.574C127.227,69.474 131.690,119.294 143.882,139.612C167.914,179.664 190.372,173.255 236.967,231.032C248.031,217.300 245.006,178.319 233.134,153.162C212.217,108.838 172.708,106.866 146.998,46.574Z"/></symbol><symbol id="sg-word" viewBox="28 28 686 74"><path fill="currentColor" fill-rule="nonzero" transform="translate(30.00,100.00) scale(1.00000)" d="M31.6 1.4000000000000001Q23.0 1.4000000000000001 15.05 -0.7500000000000001Q7.1000000000000005 -2.9000000000000004 2.1 -6.300000000000001L8.6 -20.900000000000002Q13.3 -17.900000000000002 19.450000000000003 -15.950000000000001Q25.6 -14.0 31.700000000000003 -14.0Q35.800000000000004 -14.0 38.300000000000004 -14.75Q40.800000000000004 -15.5 41.95 -16.75Q43.1 -18.0 43.1 -19.700000000000003Q43.1 -22.1 40.900000000000006 -23.5Q38.7 -24.900000000000002 35.2 -25.800000000000004Q31.700000000000003 -26.700000000000003 27.450000000000003 -27.6Q23.200000000000003 -28.5 18.950000000000003 -29.9Q14.700000000000001 -31.3 11.200000000000001 -33.550000000000004Q7.7 -35.800000000000004 5.5 -39.45Q3.3000000000000003 -43.1 3.3000000000000003 -48.7Q3.3000000000000003 -55.0 6.750000000000001 -60.1Q10.200000000000001 -65.2 17.1 -68.30000000000001Q24.0 -71.4 34.300000000000004 -71.4Q41.2 -71.4 47.85 -69.85Q54.5 -68.3 59.7 -65.3L53.6 -50.6Q48.6 -53.300000000000004 43.7 -54.650000000000006Q38.800000000000004 -56.0 34.2 -56.0Q30.1 -56.0 27.6 -55.150000000000006Q25.1 -54.300000000000004 24.0 -52.900000000000006Q22.900000000000002 -51.5 22.900000000000002 -49.7Q22.900000000000002 -47.400000000000006 25.050000000000004 -46.050000000000004Q27.200000000000003 -44.7 30.750000000000004 -43.85Q34.300000000000004 -43.0 38.550000000000004 -42.1Q42.800000000000004 -41.2 47.050000000000004 -39.85Q51.300000000000004 -38.5 54.800000000000004 -36.25Q58.300000000000004 -34.0 60.45 -30.35Q62.6 -26.700000000000003 62.6 -21.200000000000003Q62.6 -15.100000000000001 59.150000000000006 -9.950000000000001Q55.7 -4.800000000000001 48.85 -1.7000000000000002Q42.0 1.4000000000000001 31.6 1.4000000000000001ZM85.60000000000001 0.0V-54.300000000000004H64.10000000000001V-70.0H126.80000000000001V-54.300000000000004H105.4V0.0ZM168.5 1.4000000000000001Q160.1 1.4000000000000001 153.0 -1.2999999999999998Q145.9 -4.0 140.65 -8.95Q135.4 -13.9 132.5 -20.5Q129.6 -27.1 129.6 -35.0Q129.6 -42.900000000000006 132.5 -49.5Q135.4 -56.1 140.65 -61.05Q145.9 -66.0 153.0 -68.7Q160.1 -71.4 168.5 -71.4Q177.0 -71.4 184.05 -68.7Q191.10000000000002 -66.0 196.3 -61.05Q201.5 -56.1 204.45 -49.5Q207.4 -42.900000000000006 207.4 -35.0Q207.4 -27.1 204.45 -20.450000000000003Q201.5 -13.8 196.3 -8.9Q191.10000000000002 -4.0 184.05 -1.2999999999999998Q177.0 1.4000000000000001 168.5 1.4000000000000001ZM168.5 -15.0Q172.5 -15.0 175.95 -16.4Q179.4 -17.8 181.95 -20.450000000000003Q184.5 -23.1 185.95 -26.8Q187.4 -30.5 187.4 -35.0Q187.4 -39.6 185.95 -43.25Q184.5 -46.900000000000006 181.95 -49.550000000000004Q179.4 -52.2 175.95 -53.6Q172.5 -55.0 168.5 -55.0Q164.5 -55.0 161.05 -53.6Q157.6 -52.2 155.05 -49.550000000000004Q152.5 -46.900000000000006 151.05 -43.25Q149.6 -39.6 149.6 -35.0Q149.6 -30.5 151.05 -26.8Q152.5 -23.1 155.05 -20.450000000000003Q157.6 -17.8 161.05 -16.4Q164.5 -15.0 168.5 -15.0ZM216.8 0.0V-70.0H248.10000000000002Q263.40000000000003 -70.0 271.65000000000003 -63.05Q279.90000000000003 -56.1 279.90000000000003 -44.1Q279.90000000000003 -36.2 276.1 -30.450000000000003Q272.3 -24.700000000000003 265.35 -21.650000000000002Q258.40000000000003 -18.6 248.8 -18.6H227.8L236.60000000000002 -26.900000000000002V0.0ZM260.1 0.0 242.70000000000002 -25.5H263.8L281.3 0.0ZM236.60000000000002 -24.8 227.8 -33.9H247.60000000000002Q253.8 -33.9 256.85 -36.6Q259.90000000000003 -39.300000000000004 259.90000000000003 -44.1Q259.90000000000003 -49.0 256.85 -51.7Q253.8 -54.400000000000006 247.60000000000002 -54.400000000000006H227.8L236.60000000000002 -63.5ZM307.5 0.0V-29.6L312.1 -17.7L280.8 -70.0H301.7L324.3 -32.1H312.2L334.90000000000003 -70.0H354.1L322.90000000000003 -17.7L327.3 -29.6V0.0ZM395.20000000000005 0.6000000000000001Q387.20000000000005 0.6000000000000001 380.45000000000005 -2.05Q373.70000000000005 -4.7 368.75 -9.5Q363.8 -14.3 361.05 -20.8Q358.3 -27.3 358.3 -35.0Q358.3 -42.7 361.05 -49.2Q363.8 -55.7 368.8 -60.5Q373.8 -65.3 380.55 -67.95Q387.3 -70.60000000000001 395.3 -70.60000000000001Q403.3 -70.60000000000001 409.95000000000005 -68.10000000000001Q416.6 -65.60000000000001 421.3 -60.5L416.70000000000005 -55.800000000000004Q412.3 -60.2 407.0 -62.1Q401.70000000000005 -64.0 395.6 -64.0Q389.1 -64.0 383.65000000000003 -61.85Q378.20000000000005 -59.7 374.15000000000003 -55.75Q370.1 -51.800000000000004 367.85 -46.550000000000004Q365.6 -41.300000000000004 365.6 -35.0Q365.6 -28.8 367.85 -23.5Q370.1 -18.2 374.15000000000003 -14.25Q378.20000000000005 -10.3 383.65000000000003 -8.15Q389.1 -6.0 395.5 -6.0Q401.5 -6.0 406.85 -7.800000000000001Q412.20000000000005 -9.600000000000001 416.70000000000005 -13.9L420.90000000000003 -8.3Q415.90000000000003 -3.9000000000000004 409.20000000000005 -1.6500000000000001Q402.5 0.6000000000000001 395.20000000000005 0.6000000000000001ZM420.90000000000003 -8.3 413.8 -9.200000000000001V-35.0H420.90000000000003ZM440.8 0.0V-70.0H467.00000000000006Q480.30000000000007 -70.0 487.95000000000005 -63.650000000000006Q495.6 -57.300000000000004 495.6 -46.0Q495.6 -38.6 492.15000000000003 -33.25Q488.70000000000005 -27.900000000000002 482.30000000000007 -25.050000000000004Q475.90000000000003 -22.200000000000003 467.00000000000006 -22.200000000000003H444.90000000000003L448.20000000000005 -25.6V0.0ZM488.6 0.0 470.6 -25.400000000000002H478.6L496.70000000000005 0.0ZM448.20000000000005 -25.0 444.90000000000003 -28.5H466.8Q477.30000000000007 -28.5 482.75000000000006 -33.1Q488.20000000000005 -37.7 488.20000000000005 -46.0Q488.20000000000005 -54.400000000000006 482.75000000000006 -59.0Q477.30000000000007 -63.6 466.8 -63.6H444.90000000000003L448.20000000000005 -67.10000000000001ZM500.90000000000003 0.0 532.9000000000001 -70.0H540.2L572.2 0.0H564.4000000000001L535.0 -65.7H538.0L508.6 0.0ZM513.5 -18.7 515.7 -24.700000000000003H556.4000000000001L558.6 -18.7ZM582.8000000000001 0.0V-70.0H590.2V0.0ZM612.0000000000001 0.0V-70.0H618.1000000000001L666.4000000000001 -9.200000000000001H663.2000000000002V-70.0H670.5000000000001V0.0H664.4000000000001L616.2000000000002 -60.800000000000004H619.4000000000001V0.0Z"/></symbol></svg>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="/" aria-label="Storygrain Creative home"><svg class="m" aria-hidden="true"><use href="#sg-mark"></use></svg><svg class="w" aria-hidden="true"><use href="#sg-word"></use></svg></a>
+      <span class="mono">Release</span>
+    </div>
+    <h1>Appearance Release</h1>
+    <p>Thanks for being part of the shoot. Please read, fill in your details and sign below.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <form enctype='multipart/form-data' id='rel' method='POST' name='release' novalidate data-netlify='true' netlify-honeypot='bot-field'>
+      <input type="hidden" name="form-name" value="release">
+      <p class="hide"><label>Leave blank <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <section class="card">
+        <div class="mono label">The release</div>
+        <div class="terms">
+          <p>I give <b>Storygrain Creative</b> and the client this production is made for (together, "the Producers") permission to photograph, film and record me, and to use my name, image, likeness, voice and appearance in the finished work.</p>
+          <p><b>Use.</b> The Producers may use this material in any media, including websites, social media, advertising, presentations and portfolios, worldwide and with no time limit.</p>
+          <p><b>Editing.</b> The material may be edited, cropped or combined with other content. I understand I don't have the right to approve the final work.</p>
+          <p><b>No payment.</b> I am taking part voluntarily and will not receive payment or royalties for this use.</p>
+          <p><b>Ownership.</b> All photos, footage and recordings belong to the Producers.</p>
+          <p><b>Release.</b> I release the Producers from any claims related to the use described here, including claims of invasion of privacy or right of publicity.</p>
+          <p><b>Age.</b> I am 19 or older, or I am the parent or legal guardian signing for the minor named below.</p>
+          <p>I agree that my electronic signature below is as valid as a handwritten one.</p>
+        </div>
+      </section>
+
+      <section class="card fields">
+        <div class="mono label" style="margin:0">Your details</div>
+        <label class="f">Production
+          <input type="text" name="production" id="production" placeholder="e.g. Business name" autocomplete="off">
+        </label>
+        <label class="f">Full name
+          <input type="text" name="name" id="name" autocomplete="name" required>
+        </label>
+        <div class="two">
+          <label class="f">Email
+            <input type="email" name="email" id="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <label class="f"><span>Phone <small>(optional)</small></span>
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel">
+          </label>
+        </div>
+        <label class="check"><input type="checkbox" id="minorbox"> I'm signing as a parent or guardian for someone under 19</label>
+        <div class="minor" id="minor">
+          <label class="f">Minor's full name
+            <input type="text" id="minor_name" autocomplete="off">
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="sighead"><b>Sign here</b><button type="button" class="clear" id="clear">Clear</button></div>
+        <div class="pad" id="pad">
+          <canvas id="sig" aria-label="Signature box. Draw your signature with your finger, a stylus or a mouse." role="img"></canvas>
+          <span class="x">&times;</span>
+          <div class="line"></div>
+          <div class="hint mono">Sign with your finger or Apple Pencil</div>
+        </div>
+        <div class="meta" id="today"></div>
+        <label class="check" style="margin-top:18px"><input type="checkbox" id="agree"> I have read and agree to this release.</label>
+        <div class="err" id="err" role="alert"></div>
+        <button class="go" id="go" type="submit">Sign and submit</button>
+      </section>
+      <input type="hidden" name="signing_for" id="signing_for">
+      <input type="hidden" name="signed_at" id="signed_at">
+      <input type="hidden" name="release_version" value="v1 (Nov 2026)">
+      <input class="hide" type="file" name="signed_release" tabindex="-1" aria-hidden="true">
+      <input type="hidden" name="subject" id="subject" value="Signed release">
+    </form>
+
+    <section class="card done" id="done" aria-live="polite">
+      <svg class="ok" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M17 29l7 7 15-16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2>You're all set.</h2>
+      <p>Your signed release was received. Thanks for being part of it.</p>
+      <a class="again" id="dl" href="#" download style="text-decoration:none;margin-right:8px">Download your copy</a>
+      <button class="again" type="button" id="again">Sign another release</button>
+    </section>
+  </div>
+</main>
+<footer>Storygrain Creative &middot; Omaha, NE &middot; hello@storygrain.co</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+(function(){
+  var form=document.getElementById('rel'),pad=document.getElementById('pad'),cv=document.getElementById('sig'),ctx=cv.getContext('2d');
+  var strokes=[],cur=null,err=document.getElementById('err');
+  var now=new Date();
+  document.getElementById('today').textContent='Date: '+now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+  // Prefill production from ?project=
+  try{var p=new URLSearchParams(location.search).get('project');if(p)document.getElementById('production').value=p;}catch(e){}
+
+  var minorbox=document.getElementById('minorbox'),minor=document.getElementById('minor');
+  minorbox.addEventListener('change',function(){minor.classList.toggle('on',minorbox.checked);});
+
+  function size(){
+    var r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;
+    cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);
+    ctx.setTransform(d,0,0,d,0,0);redraw();
+  }
+  function w(pt){return pt.t==='pen'?1.4+pt.p*2.6:2.6;}
+  function drawStroke(s){
+    ctx.strokeStyle='#1C1F1D';ctx.lineCap='round';ctx.lineJoin='round';
+    if(s.length===1){ctx.beginPath();ctx.arc(s[0].x,s[0].y,w(s[0])/2,0,Math.PI*2);ctx.fillStyle='#1C1F1D';ctx.fill();return;}
+    for(var i=1;i<s.length;i++){
+      var a=s[i-1],b=s[i],m0=i>1?{x:(s[i-2].x+a.x)/2,y:(s[i-2].y+a.y)/2}:a,m1={x:(a.x+b.x)/2,y:(a.y+b.y)/2};
+      ctx.lineWidth=(w(a)+w(b))/2;ctx.beginPath();ctx.moveTo(m0.x,m0.y);ctx.quadraticCurveTo(a.x,a.y,m1.x,m1.y);ctx.stroke();
+    }
+    var l=s[s.length-1],pm={x:(s[s.length-2].x+l.x)/2,y:(s[s.length-2].y+l.y)/2};
+    ctx.beginPath();ctx.moveTo(pm.x,pm.y);ctx.lineTo(l.x,l.y);ctx.stroke();
+  }
+  function redraw(){
+    var r=cv.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);
+    strokes.forEach(drawStroke);pad.classList.toggle('has',strokes.length>0);
+  }
+  function pt(e){var r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top,p:e.pressure||.5,t:e.pointerType};}
+  cv.addEventListener('pointerdown',function(e){
+    e.preventDefault();cv.setPointerCapture(e.pointerId);cur=[pt(e)];strokes.push(cur);pad.classList.add('has');pad.classList.remove('bad');redraw();
+  });
+  cv.addEventListener('pointermove',function(e){
+    if(!cur)return;e.preventDefault();
+    var evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];
+    evs.forEach(function(ev){cur.push(pt(ev));});redraw();
+  });
+  function end(){cur=null;}
+  cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+  // Stop iOS from scrolling or zooming while signing
+  ['touchstart','touchmove'].forEach(function(t){cv.addEventListener(t,function(e){e.preventDefault();},{passive:false});});
+  document.getElementById('clear').addEventListener('click',function(){strokes=[];redraw();});
+  var lastW=0;window.addEventListener('resize',function(){var r=cv.getBoundingClientRect();if(Math.abs(r.width-lastW)>1){lastW=r.width;size();}});
+  size();lastW=cv.getBoundingClientRect().width;
+
+  // Export a trimmed, white-background PNG of the signature
+  function sigBlob(cb){
+    var xs=[],ys=[];strokes.forEach(function(s){s.forEach(function(p){xs.push(p.x);ys.push(p.y);});});
+    var pad2=12,minX=Math.min.apply(0,xs)-pad2,minY=Math.min.apply(0,ys)-pad2,maxX=Math.max.apply(0,xs)+pad2,maxY=Math.max.apply(0,ys)+pad2;
+    var sc=2,o=document.createElement('canvas');o.width=Math.ceil((maxX-minX)*sc);o.height=Math.ceil((maxY-minY)*sc);
+    var c=o.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,o.width,o.height);c.setTransform(sc,0,0,sc,-minX*sc,-minY*sc);
+    var keep=ctx;ctx=c;strokes.forEach(drawStroke);ctx=keep;
+    o.toBlob(cb,'image/png');
+  }
+
+  // Logo as PNG for the PDF header
+  function logoPNG(){
+    return new Promise(function(res){
+      try{
+        var mk=document.querySelector('#sg-mark path').outerHTML.replace('currentColor','#A9B59B');
+        var wd=document.querySelector('#sg-word path').outerHTML.replace('currentColor','#F1EDE6');
+        var svg='<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="200" viewBox="0 0 680 100">'+
+          '<svg x="0" y="0" width="43.1" height="100" viewBox="30 30 172.4 400">'+mk+'</svg>'+
+          '<svg x="62" y="21" width="600" height="64.7" viewBox="28 28 686 74">'+wd+'</svg></svg>';
+        var img=new Image();
+        img.onload=function(){var c=document.createElement('canvas');c.width=1360;c.height=200;c.getContext('2d').drawImage(img,0,0);res(c.toDataURL('image/png'));};
+        img.onerror=function(){res(null);};
+        img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+      }catch(e){res(null);}
+    });
+  }
+  function sigData(){
+    return new Promise(function(res){sigBlob(function(b){var r=new FileReader();r.onload=function(){var i=new Image();i.onload=function(){res({url:r.result,w:i.width,h:i.height});};i.src=r.result;};r.readAsDataURL(b);});});
+  }
+
+  function buildPDF(d){
+    return Promise.all([logoPNG(),sigData()]).then(function(v){
+      var logo=v[0],sig=v[1],J=window.jspdf.jsPDF,doc=new J({unit:'pt',format:'letter'});
+      var L=54,W=504,y;
+      doc.setFillColor(45,58,51);doc.rect(0,0,612,76,'F');
+      if(logo)doc.addImage(logo,'PNG',L,24,190,28);else{doc.setTextColor(241,237,230);doc.setFont('helvetica','bold');doc.setFontSize(16);doc.text('STORYGRAIN CREATIVE',L,44);}
+      doc.setTextColor(169,181,155);doc.setFont('courier','normal');doc.setFontSize(8.5);doc.setCharSpace(1.2);
+      doc.text('APPEARANCE RELEASE',L+W,42,{align:'right'});doc.setCharSpace(0);
+      y=118;doc.setTextColor(28,31,29);doc.setFont('helvetica','bold');doc.setFontSize(22);doc.text('Appearance Release',L,y);
+      y+=20;doc.setFont('helvetica','normal');doc.setFontSize(10.5);doc.setTextColor(91,98,92);
+      doc.text((d.production?'Production: '+d.production+'   ':'')+'Signed '+d.dateStr,L,y);
+      y+=14;doc.setDrawColor(217,211,199);doc.line(L,y,L+W,y);y+=22;
+      doc.setTextColor(28,31,29);doc.setFontSize(10);
+      document.querySelectorAll('.terms p').forEach(function(p){
+        var bEl=p.querySelector('b'),full=p.textContent.replace(/\s+/g,' ').trim(),lab='',lw=0;
+        if(bEl&&full.indexOf(bEl.textContent)===0&&bEl.textContent.slice(-1)==='.'){lab=bEl.textContent+' ';full=full.slice(lab.length);doc.setFont('helvetica','bold');lw=doc.getTextWidth(lab);}
+        var first=doc.splitTextToSize(full,W-lw)[0],rest=full.slice(first.length).trim();
+        var lines=[first].concat(rest?doc.splitTextToSize(rest,W):[]);
+        if(y+lines.length*13.5>740){doc.addPage();y=60;}
+        if(lab){doc.text(lab,L,y);}
+        doc.setFont('helvetica','normal');doc.text(first,L+lw,y);
+        if(lines.length>1)doc.text(lines.slice(1),L,y+13.5);
+        y+=lines.length*13.5+7;
+      });
+      y+=6;doc.line(L,y,L+W,y);y+=24;
+      var rows=[['Name',d.name],['Email',d.email],['Phone',d.phone||'Not provided'],['Signing for',d.signingFor]];
+      rows.forEach(function(r){
+        doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(91,98,92);doc.text(r[0].toUpperCase(),L,y);
+        doc.setFont('helvetica','normal');doc.setFontSize(11);doc.setTextColor(28,31,29);doc.text(String(r[1]),L+110,y);y+=20;
+      });
+      if(y>600){doc.addPage();y=80;}
+      y+=18;
+      var sh=Math.min(70,sig.h*(220/sig.w)),sw=sh*(sig.w/sig.h);
+      doc.addImage(sig.url,'PNG',L,y,sw,sh);y+=sh+6;
+      doc.setDrawColor(28,31,29);doc.line(L,y,L+260,y);doc.line(L+300,y,L+W,y);
+      doc.setFont('helvetica','normal');doc.setFontSize(11);doc.text(d.dateStr,L+300,y-8);
+      y+=14;doc.setFontSize(8.5);doc.setTextColor(91,98,92);doc.setFont('helvetica','bold');
+      doc.text('SIGNATURE',L,y);doc.text('DATE',L+300,y);
+      y+=13;doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(28,31,29);doc.text(d.name,L,y);
+      doc.setFontSize(8);doc.setTextColor(120,126,121);
+      doc.text('Signed electronically at storygrain.co/release on '+d.stamp+'. Release '+d.version+'.',L,750);
+      doc.text('Storygrain Creative  ·  Omaha, NE  ·  hello@storygrain.co',L,762);
+      return doc.output('blob');
+    });
+  }
+
+  var lastPdf=null;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    var name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim();
+    if(!name){err.textContent='Please enter your full name.';document.getElementById('name').focus();return;}
+    if(!/^\S+@\S+\.\S+$/.test(email)){err.textContent='Please enter a valid email.';document.getElementById('email').focus();return;}
+    var minorName=document.getElementById('minor_name').value.trim();
+    if(minorbox.checked&&!minorName){err.textContent="Please enter the minor's full name.";document.getElementById('minor_name').focus();return;}
+    var pts=strokes.reduce(function(n,s){return n+s.length;},0);
+    if(pts<8){err.textContent='Please sign in the box.';pad.classList.add('bad');return;}
+    if(!document.getElementById('agree').checked){err.textContent='Please check the box to agree.';return;}
+    var go=document.getElementById('go');go.disabled=true;go.textContent='Submitting…';
+    var t=new Date(),prod=document.getElementById('production').value.trim();
+    var d={name:name,email:email,phone:form.phone.value.trim(),production:prod,
+      signingFor:minorbox.checked?'Minor: '+minorName+' (signed by parent or guardian)':'Self',
+      dateStr:t.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}),
+      stamp:t.toLocaleString('en-US',{dateStyle:'long',timeStyle:'short'}),version:'v1 (Nov 2026)'};
+    document.getElementById('signing_for').value=d.signingFor;
+    document.getElementById('signed_at').value=d.stamp;
+    document.getElementById('subject').value='Signed release: '+name+(prod?' ('+prod+')':'');
+    var slug=name.replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').toLowerCase();
+    var make=window.jspdf?buildPDF(d).then(function(b){return {blob:b,fn:'release-'+slug+'.pdf'};}):
+      new Promise(function(res){sigBlob(function(b){res({blob:b,fn:'signature-'+slug+'.png'});});});
+    make.catch(function(){return new Promise(function(res){sigBlob(function(b){res({blob:b,fn:'signature-'+slug+'.png'});});});})
+    .then(function(f){
+      lastPdf=f;
+      var fd=new FormData(form);fd.delete('signed_release');fd.append('signed_release',f.blob,f.fn);
+      return fetch('/',{method:'POST',body:fd}).then(function(r){
+        if(!r.ok)throw new Error(r.status);
+        var dl=document.getElementById('dl');
+        if(dl.dataset.u)URL.revokeObjectURL(dl.dataset.u);
+        dl.dataset.u=URL.createObjectURL(f.blob);dl.href=dl.dataset.u;dl.download=f.fn;
+        form.style.display='none';document.getElementById('done').classList.add('on');window.scrollTo({top:0,behavior:'smooth'});
+      });
+    }).catch(function(){
+      err.textContent='Something went wrong. Please check your connection and try again.';
+    }).finally(function(){go.disabled=false;go.textContent='Sign and submit';});
+  });
+
+  // Reset for the next person on the same device
+  document.getElementById('again').addEventListener('click',function(){
+    var prod=document.getElementById('production').value;
+    form.reset();document.getElementById('production').value=prod;minor.classList.remove('on');
+    strokes=[];document.getElementById('done').classList.remove('on');form.style.display='';
+    requestAnimationFrame(size);window.scrollTo({top:0});
+  });
+})();
+</script>
+</body>
+</html>
