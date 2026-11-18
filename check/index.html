@@ -42,10 +42,10 @@ p{margin:0}
 
 /* header */
 .top{background:var(--forest);color:var(--cream);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:18px;max-width:1120px;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .brand{display:flex;align-items:center;gap:12px;color:var(--cream);text-decoration:none}
-.brand .m{width:16px;height:38px;color:var(--sage)}
-.brand .w{width:150px;height:16px}
+.brand .m{width:17px;height:40px;color:var(--sage)}
+.brand .w{width:160px;height:17px}
 .top .live{display:flex;align-items:center;gap:8px;color:rgba(241,237,230,.75)}
 .top .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage);animation:blink 1.2s steps(2,start) infinite}
 @keyframes blink{to{visibility:hidden}}
