@@ -47,7 +47,7 @@ RELEASE FORM (storygrain.co/release)
 CLIENT DELIVERY PAGES (storygrain.co/clients/<name>)
    - Hidden and password protected. The video, links and caption are
      encrypted in the page, so they can't be read without the password.
-   - Walk Thru Plans: storygrain.co/clients/walk-thru-plans  (password: wtp26)
+   - Walk Thru Plans: storygrain.co/clients/walk-thru-plans  (password: ask Eric or Austin)
    - Testimonials land in Netlify > Forms > "testimonial".
 
 FILES
