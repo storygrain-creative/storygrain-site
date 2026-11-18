@@ -79,7 +79,7 @@ function block(label, text, quote) {
 
 function value(k, v) {
   const url = fileUrl(v);
-  if (url) return `<a href="${esc(url)}" style="color:${C.forest};font-weight:600">View ${k === 'signed_release' ? 'signed release' : 'file'}</a>`;
+  if (url) return `<a href="${esc(url)}" style="color:${C.forest};font-weight:600">${k === 'signed_release' ? 'Signed release PDF' : 'View file'}</a><div style="font:400 13px/1.4 ${SANS};color:${C.muted};margin-top:2px">Attached to this email</div>`;
   if (k === 'email' && v) return `<a href="mailto:${esc(v)}" style="color:${C.forest}">${esc(v)}</a>`;
   if (k === 'phone' && v) return `<a href="tel:${esc(String(v).replace(/[^\d+]/g, ''))}" style="color:${C.forest}">${esc(v)}</a>`;
   return nl(v);
@@ -164,7 +164,11 @@ Every entry is also saved in <a href="${DASH}" style="color:${C.forest}">Netlify
 
   const text = [f.headline(d), when, '', ...Object.entries(d).filter(([k, v]) => !SKIP.has(k) && v !== '' && v != null).map(([k, v]) => `${pretty(k)}: ${fileUrl(v) || v}`), d.results ? `\n${d.results}` : '', '', `All entries: ${DASH}`].join('\n');
 
-  return { subject, html, text, replyTo: d.email || undefined };
+  // Uploaded files (the signed release PDF) ride along as real attachments.
+  const attachments = Object.values(d).map(fileUrl).filter(Boolean)
+    .map((url) => ({ path: url, filename: decodeURIComponent(url.split('/').pop().split('?')[0]) || 'attachment' }));
+
+  return { subject, html, text, replyTo: d.email || undefined, attachments };
 }
 
 export const handler = async (event) => {
@@ -177,7 +181,7 @@ export const handler = async (event) => {
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: FROM, to: [TO], subject: msg.subject, html: msg.html, text: msg.text, ...(msg.replyTo ? { reply_to: msg.replyTo } : {}) }),
+    body: JSON.stringify({ from: FROM, to: [TO], subject: msg.subject, html: msg.html, text: msg.text, ...(msg.replyTo ? { reply_to: msg.replyTo } : {}), ...(msg.attachments.length ? { attachments: msg.attachments } : {}) }),
   });
   if (!res.ok) { console.error('Resend error', res.status, await res.text()); return { statusCode: 502, body: 'send failed' }; }
   return { statusCode: 200, body: 'sent' };
