@@ -39,3 +39,7 @@
   for = "/clients/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive"
+
+# Branded form emails (netlify/functions/submission-created.mjs)
+[functions]
+  directory = "netlify/functions"
