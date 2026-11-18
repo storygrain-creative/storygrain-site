@@ -719,21 +719,34 @@ footer .brand .m{width:14px;height:32px}
     window.addEventListener('resize',fill); fill();
   })();
 
-  // Focus pull on the headshots: racks each time a headshot scrolls into view. No hover, since they are not links.
+  // Focus pull on the headshots: racks when scrolled into view, then re-racks at
+  // random (every 6-14s) while on screen, so the photos keep breathing. Each lens
+  // has its own timer so they don't fire in sync; timers stop off-screen and in
+  // background tabs. No hover, since the photos are not links.
   var lenses=[].slice.call(document.querySelectorAll('.lens'));
   var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   function rack(el){
     el.classList.remove('pre','focusing'); void el.offsetWidth; el.classList.add('focusing');
     clearTimeout(el._t); el._t=setTimeout(function(){el.classList.remove('focusing')},950);
   }
-  if(!still){
-    if('IntersectionObserver' in window){
-      lenses.forEach(function(el){el.classList.add('pre')});
-      var io=new IntersectionObserver(function(entries){
-        entries.forEach(function(en){ if(en.isIntersecting){ rack(en.target); } });
-      },{threshold:.6});
-      lenses.forEach(function(el){io.observe(el)});
-    }
+  function schedule(el){
+    clearTimeout(el._r);
+    el._r=setTimeout(function(){
+      if(el._vis && !document.hidden) rack(el);
+      if(el._vis) schedule(el);
+    }, 6000+Math.random()*8000);
+  }
+  if(!still && 'IntersectionObserver' in window){
+    lenses.forEach(function(el){el.classList.add('pre')});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var el=en.target;
+        if(en.isIntersecting){
+          if(!el._vis){ el._vis=true; if(!el._seen){ el._seen=true; rack(el); } schedule(el); }
+        } else { el._vis=false; clearTimeout(el._r); }
+      });
+    },{threshold:.6});
+    lenses.forEach(function(el){io.observe(el)});
   }
 
   // Email link: opens the mail app with subject and body filled in; also copies the address as a fallback.
