@@ -1,0 +1,19 @@
+{
+  "_note": "HEX and RGB are the approved brand values (Oct 23, 2026) and match storygrain.co. CMYK was never specified by a printer; values here are an ICC conversion (sRGB to FOGRA39 coated, relative colorimetric) to use as a starting point. Confirm with a printed proof, especially on uncoated stock.",
+  "brand": {
+    "forest": {"name": "Forest", "hex": "#2D3A33", "rgb": [45, 58, 51], "cmyk": [81, 55, 73, 67]},
+    "sage":   {"name": "Sage",   "hex": "#A9B59B", "rgb": [169, 181, 155], "cmyk": [38, 19, 42, 5]},
+    "cream":  {"name": "Cream",  "hex": "#F1EDE6", "rgb": [241, 237, 230], "cmyk": [7, 7, 11, 0]},
+    "ink":    {"name": "Ink",    "hex": "#1C1F1D", "rgb": [28, 31, 29], "cmyk": [82, 68, 61, 97]}
+  },
+  "ui_tints_in_use_on_site": {
+    "_note": "Supporting tints used on storygrain.co and the one-sheet. Not brand colors; don't use them for the logo.",
+    "forest-deep": "#243029",
+    "sage-hover": "#B9C4AC",
+    "card": "#F8F5EF",
+    "tint": "#E6E1D6",
+    "line": "#D9D3C7",
+    "muted": "#5B625C",
+    "error": "#9B3B2E"
+  }
+}

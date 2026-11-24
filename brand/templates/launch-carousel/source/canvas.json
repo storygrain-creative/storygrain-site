@@ -1,0 +1,84 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Main.dc.html": {
+      "h": 1350,
+      "title": "01 Hook",
+      "w": 1080,
+      "x": 0,
+      "y": 0
+    },
+    "S2-Services.dc.html": {
+      "h": 1350,
+      "title": "02 What you get",
+      "w": 1080,
+      "x": 1160,
+      "y": 0
+    },
+    "S3-Planned.dc.html": {
+      "h": 1350,
+      "title": "03 Planned before we shoot",
+      "w": 1080,
+      "x": 2320,
+      "y": 0
+    },
+    "S4-Process.dc.html": {
+      "h": 1350,
+      "title": "04 How it works",
+      "w": 1080,
+      "x": 3480,
+      "y": 0
+    },
+    "S5-Who.dc.html": {
+      "h": 1350,
+      "title": "05 Who it's for",
+      "w": 1080,
+      "x": 4640,
+      "y": 0
+    },
+    "S6-Team.dc.html": {
+      "h": 1350,
+      "title": "06 The team",
+      "w": 1080,
+      "x": 5800,
+      "y": 0
+    },
+    "S7-CTA.dc.html": {
+      "h": 1350,
+      "title": "07 Book a call",
+      "w": 1080,
+      "x": 6960,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-24T17:05:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "t": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "Storygrain launch carousel · 4:5 · 1080×1350",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "S2-Services.dc.html",
+    "S3-Planned.dc.html",
+    "S4-Process.dc.html",
+    "S5-Who.dc.html",
+    "S6-Team.dc.html",
+    "S7-CTA.dc.html"
+  ],
+  "pages": [],
+  "title": "Storygrain Launch Carousel"
+}
